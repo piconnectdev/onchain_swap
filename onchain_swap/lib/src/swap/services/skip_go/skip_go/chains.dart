@@ -1,0 +1,24 @@
+import 'package:onchain_swap/src/providers/skip_go/models/types/types.dart';
+import 'package:onchain_swap/src/swap/types/types.dart';
+
+class SkipGoSwapAsset extends BaseSwapAsset {
+  final SkipGoApiAsset asset;
+
+  const SkipGoSwapAsset({
+    required super.symbol,
+    required super.providerIdentifier,
+    required this.asset,
+    required super.decimal,
+    required super.network,
+    required super.provider,
+  }) : super(type: SwapAssetType.native);
+
+  @override
+  String? get coingeckoId => asset.coingeckoId;
+
+  @override
+  String? get logoUrl => asset.logoUri;
+
+  @override
+  String get identifier => throw UnimplementedError();
+}
