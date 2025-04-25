@@ -1,4 +1,5 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
+import 'package:example/api/services/types/app_client.dart';
 import 'package:onchain_swap/onchain_swap.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:example/api/services/electrum/services/electrum_service.dart';
@@ -150,55 +151,73 @@ class ProviderUtils {
     }
   }
 
-  static Future<NetworkClient> buildClient(
+  static Future<AppClient> buildClient(
       {required SwapNetwork network,
       required ServiceInfo provider,
       CosmosSdkChain? cosmosChain}) async {
     switch (network.type) {
       case SwapChainType.solana:
-        return await SolanaClient.check(
+        final client = await SolanaClient.check(
             provider: SolanaProvider(SolanaHTTPService(service: provider)),
             network: network.cast());
+
+        return AppClient(client: client, dispose: () {});
       case SwapChainType.cosmos:
         if (cosmosChain == null) {
           throw AppException("missin_cosmos_chain_info_err");
         }
-        return await CosmosClient.check(
-            provider:
-                TendermintProvider(TendermintHTTPService(service: provider)),
-            network: network.cast(),
-            chainInfo: cosmosChain);
+        return AppClient(
+          client: await CosmosClient.check(
+              provider:
+                  TendermintProvider(TendermintHTTPService(service: provider)),
+              network: network.cast(),
+              chainInfo: cosmosChain),
+        );
       case SwapChainType.polkadot:
         switch (provider.protocol) {
           case ServiceProtocol.http:
-            return await SubstrateClient.check(
-                provider:
-                    SubstrateProvider(SubstrateHTTPService(service: provider)),
-                network: network.cast());
+            return AppClient(
+                client: await SubstrateClient.check(
+                    provider: SubstrateProvider(
+                        SubstrateHTTPService(service: provider)),
+                    network: network.cast()));
           case ServiceProtocol.websocket:
-            return await SubstrateClient.check(
-                provider: SubstrateProvider(
-                    SubstrateWebsocketService(service: provider)),
-                network: network.cast());
+            final service = SubstrateWebsocketService(service: provider);
+            return AppClient(
+                client: await SubstrateClient.check(
+                    provider: SubstrateProvider(service),
+                    network: network.cast()),
+                dispose: () {
+                  service.disposeService();
+                });
           default:
             throw AppException("invalid_provider_protocol");
         }
       case SwapChainType.bitcoin:
-        return await BitcoinClient.check(
-            provider: ElectrumProvider(ElectrumService.fromProvider(provider)),
-            network: network.cast());
+        final service = ElectrumService.fromProvider(provider);
+        return AppClient(
+            client: await BitcoinClient.check(
+                provider: ElectrumProvider(service), network: network.cast()),
+            dispose: () {
+              service.disposeService();
+            });
       case SwapChainType.ethereum:
         switch (provider.protocol) {
           case ServiceProtocol.http:
-            return await EthereumClient.check(
-                provider:
-                    EthereumProvider(EthereumHTTPService(service: provider)),
-                network: network.cast());
+            return AppClient(
+                client: await EthereumClient.check(
+                    provider: EthereumProvider(
+                        EthereumHTTPService(service: provider)),
+                    network: network.cast()));
           case ServiceProtocol.websocket:
-            return await EthereumClient.check(
-                provider: EthereumProvider(
-                    EthereumWebsocketService(service: provider)),
-                network: network.cast());
+            final service = EthereumWebsocketService(service: provider);
+            return AppClient(
+              client: await EthereumClient.check(
+                  provider: EthereumProvider(service), network: network.cast()),
+              dispose: () {
+                service.disposeService();
+              },
+            );
           default:
             throw AppException("invalid_provider_protocol");
         }

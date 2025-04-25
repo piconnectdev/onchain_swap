@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
             ),
             body: PageProgress(
                 key: controller.progressKey,
-                initialStatus: StreamWidgetStatus.progress,
+                // initialStatus: StreamWidgetStatus.progress,
                 child: (context) {
                   return IgnorePointer(
                       ignoring: controller.page == SwapPage.review,

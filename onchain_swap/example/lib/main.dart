@@ -14,11 +14,14 @@ import 'package:mrt_native_support/platform_interface.dart';
 import 'future/state_managment/state_managment.dart';
 import 'future/theme/theme.dart';
 
-Future<APPSetting> _readSetting() async {
+Future<HomeStateController> _readSetting() async {
   final config = await PlatformInterface.instance.getConfig();
   final settings =
       await PlatformInterface.instance.readSecure('ST_app_setting');
-  return APPSetting.fromHex(settings, config);
+  final stateController =
+      HomeStateController(appSetting: APPSetting.fromHex(settings, config));
+  await stateController.initSwap();
+  return stateController;
 }
 
 void main() async {
@@ -30,19 +33,19 @@ void main() async {
 void _runApplication() async {
   WidgetsFlutterBinding.ensureInitialized();
   final setting = await _readSetting();
-  ThemeController.fromAppSetting(setting);
+  ThemeController.fromAppSetting(setting.appSetting);
 
   runApp(StateRepository(child: OnChainSwap(setting)));
 }
 
 class OnChainSwap extends StatelessWidget {
-  final APPSetting setting;
-  const OnChainSwap(this.setting, {super.key});
+  final HomeStateController controller;
+  const OnChainSwap(this.controller, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return MrtViewBuilder<HomeStateController>(
-      controller: () => HomeStateController(appSetting: setting),
+      controller: () => controller,
       removable: false,
       stateId: StateConst.main,
       repositoryId: StateConst.main,

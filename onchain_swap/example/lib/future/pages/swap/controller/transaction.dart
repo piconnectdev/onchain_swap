@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:blockchain_utils/bip/bip/conf/core/coin_conf.dart';
 import 'package:blockchain_utils/helper/extensions/extensions.dart';
+import 'package:example/api/services/types/app_client.dart';
 import 'package:example/app/http/impl/impl.dart';
 import 'package:example/app/synchronized/basic_lock.dart';
 import 'package:example/app/types/types.dart';
@@ -29,7 +30,7 @@ class SwapTransactionStateController extends StateController
   final SwapRouteTransactionBuilder transaction;
   final SwapRouteWithBps route;
   final _lock = SynchronizedLock();
-  // final Cancelable _cancelable = Cancelable();
+  AppClient? _client;
   final GlobalKey<PageProgressState> progressKey = GlobalKey();
   TransactionOperationStep? _step;
   TransactionOperationStep? get step => _step;
@@ -37,6 +38,7 @@ class SwapTransactionStateController extends StateController
   Web3Wallet? _wallet;
   bool get inProgress => _step != null;
   bool get hasWallet => _wallet != null;
+  SwapNetwork get network => transaction.route.quote.sourceAsset.network;
   Future<bool> onPop(FuncFutureNullableBoold callback) async {
     if (allowPop) return true;
     final pop = await callback();
@@ -65,7 +67,7 @@ class SwapTransactionStateController extends StateController
     notify();
   }
 
-  Future<NetworkClient?> _loadClient(SELECTSERVICE onSelectService) async {
+  Future<AppClient?> _loadClient(SELECTSERVICE onSelectService) async {
     final network = route.route.quote.sourceAsset.network;
     CosmosSdkChain? chainInfo;
     final service = await loadServiceProvider(network);
@@ -168,12 +170,12 @@ class SwapTransactionStateController extends StateController
       _step = TransactionOperationStep.client;
       allowPop = false;
       notify();
-      final client = await _loadClient(onSelectService);
+      final client = (_client ??= await _loadClient(onSelectService));
       if (client == null) {
         _step = null;
       } else {
         final r = await MethodUtils.call(() async {
-          return _signTransaction(client);
+          return _signTransaction(client.client);
         });
         if (r.hasError) {
           _step = null;
@@ -194,7 +196,6 @@ class SwapTransactionStateController extends StateController
     notify();
   }
 
-  SwapNetwork get network => transaction.route.quote.sourceAsset.network;
   @override
   void init() {
     super.init();
@@ -205,7 +206,15 @@ class SwapTransactionStateController extends StateController
   @override
   void ready() {
     super.ready();
-
     _walletTracker?.connectSilent();
+  }
+
+  @override
+  void close() {
+    super.close();
+    _client?.close();
+    _client = null;
+    _walletTracker?.dispose();
+    _walletTracker = null;
   }
 }

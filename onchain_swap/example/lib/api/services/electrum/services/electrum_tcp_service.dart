@@ -6,10 +6,9 @@ import 'package:example/api/services/socket/core/socket_provider.dart';
 import 'package:example/api/services/socket/protocols/tcp.dart';
 
 class ElectrumSocketService extends TCPService implements ElectrumService {
-  ElectrumSocketService({
-    required super.service,
-    this.defaultRequestTimeOut = const Duration(seconds: 30),
-  });
+  ElectrumSocketService(
+      {required super.service,
+      this.defaultRequestTimeOut = const Duration(seconds: 30)});
   final Duration defaultRequestTimeOut;
   @override
   Future<BaseServiceResponse<T>> doRequest<T>(ElectrumRequestDetails params,

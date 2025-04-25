@@ -1,18 +1,18 @@
-import 'package:blockchain_utils/cbor/cbor.dart';
-import 'package:blockchain_utils/helper/helper.dart';
-import 'package:blockchain_utils/utils/utils.dart';
+import 'package:blockchain_utils/blockchain_utils.dart';
 import 'package:example/app/constants/cbor_tags.dart';
+import 'package:example/app/euqatable/equatable.dart';
 import 'package:example/app/serialization/cbor/cbor.dart';
 import 'package:example/marketcap/prices/currency.dart';
 import 'package:mrt_native_support/models/models.dart';
 import 'package:onchain_swap/onchain_swap.dart';
 
-class APPSetting with CborSerializable {
+class APPSetting with CborSerializable, Equatable {
   APPSetting._(
       {required this.appColor,
       required this.appBrightness,
       required this.currency,
       required this.config,
+      required this.chainType,
       required List<SwapServiceProvider> swapProviders,
       this.size})
       : swapProviders = swapProviders.immutable;
@@ -22,6 +22,7 @@ class APPSetting with CborSerializable {
   final MRTAPPConfig config;
   final WidgetRect? size;
   final List<SwapServiceProvider> swapProviders;
+  final ChainType chainType;
 
   bool get supportBarcodeScanner => config.hasBarcodeScanner;
 
@@ -30,14 +31,16 @@ class APPSetting with CborSerializable {
       String? appBrightness,
       Currency? currency,
       WidgetRect? size,
-      List<SwapServiceProvider>? swapProviders}) {
+      List<SwapServiceProvider>? swapProviders,
+      ChainType? chainType}) {
     return APPSetting._(
         appColor: appColor ?? this.appColor,
         appBrightness: appBrightness ?? this.appBrightness,
         currency: currency ?? this.currency,
         config: config,
         size: size ?? this.size,
-        swapProviders: swapProviders ?? this.swapProviders);
+        swapProviders: swapProviders ?? this.swapProviders,
+        chainType: chainType ?? this.chainType);
   }
 
   factory APPSetting.fromHex(String? cborHex, MRTAPPConfig config) {
@@ -59,20 +62,23 @@ class APPSetting with CborSerializable {
       if (providers.isEmpty) {
         providers = SwapConstants.supportProviders;
       }
+      final chainType = ChainType.fromValue(cbor.elementAs(5));
       return APPSetting._(
           appColor: colorHex,
           appBrightness: brightnessName,
           currency: currency,
           config: config,
           size: rect,
-          swapProviders: providers);
+          swapProviders: providers,
+          chainType: chainType);
     } catch (_) {
       return APPSetting._(
           appColor: null,
           appBrightness: null,
           currency: Currency.USD,
           config: config,
-          swapProviders: SwapConstants.supportProviders);
+          swapProviders: SwapConstants.supportProviders,
+          chainType: ChainType.mainnet);
     }
   }
 
@@ -85,8 +91,20 @@ class APPSetting with CborSerializable {
           currency.name,
           size?.toString(),
           CborListValue.fixedLength(
-              swapProviders.map((e) => CborStringValue(e.identifier)).toList())
+              swapProviders.map((e) => CborStringValue(e.identifier)).toList()),
+          chainType.name,
         ]),
         APPSerializationConst.appSettingTag);
   }
+
+  @override
+  List get variabels => [
+        appColor,
+        appBrightness,
+        currency,
+        config,
+        size,
+        swapProviders,
+        chainType
+      ];
 }

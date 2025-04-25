@@ -185,6 +185,7 @@ class Localization {
           "wallets": "Wallets",
           "invalid_dgiest_auth_headers":
               "Invalid Digest Authentication headers.",
+          "mainnet": "Mainnet"
         }
       };
 }

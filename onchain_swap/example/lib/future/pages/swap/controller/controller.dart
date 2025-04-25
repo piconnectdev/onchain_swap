@@ -1,4 +1,3 @@
-import 'package:blockchain_utils/helper/extensions/extensions.dart';
 import 'package:example/app/constants/state.dart' show StateConst;
 import 'package:example/app/http/impl/impl.dart';
 import 'package:example/app/models/models/setting.dart';
@@ -9,9 +8,8 @@ import 'package:example/marketcap/prices/currency.dart';
 import 'package:example/marketcap/prices/live_currency.dart';
 import 'package:example/repository/network.dart';
 import 'package:flutter/material.dart';
-import 'package:onchain_swap/onchain_swap.dart';
 
-typedef ONUPDATEPROVIDERS = Future<void> Function(List<SwapServiceProvider>);
+typedef ONUPDATEPROVIDERS = Future<void> Function();
 typedef ONUPDATECOLOR = Future<Color?> Function();
 
 class HomeStateController extends StateController
@@ -21,6 +19,10 @@ class HomeStateController extends StateController
       : _appSetting = appSetting;
   @override
   APPSetting get appSetting => _appSetting;
+
+  void setAppSetting(APPSetting setting) {
+    _appSetting = setting;
+  }
 
   Future<void> toggleBrightness() async {
     ThemeController.toggleBrightness();
@@ -45,12 +47,12 @@ class HomeStateController extends StateController
   }
 
   Future<void> updateProviders(ONUPDATEPROVIDERS onUpdate) async {
-    final activeProviders = _appSetting.swapProviders.clone();
-    await onUpdate(activeProviders);
-    if (activeProviders.isEmpty) return;
-
-    _appSetting = _appSetting.copyWith(swapProviders: activeProviders);
-    saveAppSetting(_appSetting);
+    final settings = _appSetting;
+    await onUpdate();
+    if (settings != _appSetting) {
+      await saveAppSetting(_appSetting);
+      initSwap();
+    }
   }
 
   @override

@@ -17,4 +17,5 @@ abstract class ElectrumService with ElectrumServiceProvider {
         return ElectrumWebsocketService(service: service);
     }
   }
+  void disposeService();
 }

@@ -31,6 +31,7 @@ class SwapConstants {
     thorchainProvider,
     oneInch
   ];
+  static const List<SwapServiceProvider> testnetProviders = [chainflip];
 
   static const chainflip = SwapServiceProvider(
       name: "Chainflip Cross-Chain Swaps",

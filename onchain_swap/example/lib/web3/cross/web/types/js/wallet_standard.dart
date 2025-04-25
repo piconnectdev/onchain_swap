@@ -1,6 +1,7 @@
 import 'dart:js_interop';
 
 import 'package:example/web3/cross/web/types/js/global.dart';
+import 'package:mrt_native_support/web/api/core/js.dart';
 import 'package:mrt_native_support/web/api/window/window.dart';
 
 import 'bitcoin.dart';
@@ -79,33 +80,67 @@ extension type JSWalletStandardChangeEvents<
 }
 @JS()
 extension type JSWalletStandardFeatures._(JSObject _) implements JSAny {
-  @JS("standard:connect")
-  external JSWalletStandardConnectFeature standardConnect;
-  @JS("standard:events")
-  external JSWalletStandardEvents? events;
-  @JS("substrate:signTransaction")
-  external SubstrateWalletAdapterSubstrateSignTransactionFeature?
-      get substrateSignTransaction;
-  @JS("solana:signAndSendTransaction")
-  external SolanaWalletAdapterSolanaSignAndSendTransactionFeature?
-      get solanaSignAndSendTransaction;
-  @JS("solana:signTransaction")
-  external SolanaWalletAdapterSolanaSignTransactionFeature?
-      get solanaSignTransaction;
-  @JS("ethereum:sendTransaction")
-  external EthereumWalletAdapterSendTransactionFeature? ethereumSendTransaction;
-  @JS("cosmos:signTransaction")
-  external CosmosWalletAdapterStandardSignTransactionFeature?
-      cosmosSignTransaction;
-  @JS("bitcoin:signTransaction")
-  external JSWalletStandardBitcoinSignTransactionFeature?
-      bitcoinSignTransaction;
+  // @JS("standard:connect")
+  // external JSWalletStandardConnectFeature standardConnect;
+  // @JS("standard:events")
+  // external JSWalletStandardEvents? events;
+  // @JS("substrate:signTransaction")
+  // external SubstrateWalletAdapterSubstrateSignTransactionFeature?
+  //     get substrateSignTransaction;
+  // @JS("solana:signAndSendTransaction")
+  // external SolanaWalletAdapterSolanaSignAndSendTransactionFeature?
+  //     get solanaSignAndSendTransaction;
+  // @JS("solana:signTransaction")
+  // external SolanaWalletAdapterSolanaSignTransactionFeature?
+  //     get solanaSignTransaction;
+  // @JS("ethereum:sendTransaction")
+  // external EthereumWalletAdapterSendTransactionFeature? ethereumSendTransaction;
+  // @JS("cosmos:signTransaction")
+  // external CosmosWalletAdapterStandardSignTransactionFeature?
+  //     cosmosSignTransaction;
+  JSWalletStandardConnectFeature? get standardConnect =>
+      variableAs<JSWalletStandardConnectFeature>("standard:connect",
+          properties: ["connect"]);
+  JSWalletStandardEvents? get events =>
+      variableAs<JSWalletStandardEvents>("standard:events", properties: ["on"]);
+  SubstrateWalletAdapterSubstrateSignTransactionFeature?
+      get substrateSignTransaction =>
+          variableAs<SubstrateWalletAdapterSubstrateSignTransactionFeature>(
+              "substrate:signTransaction",
+              properties: ["signTransaction"]);
+  SolanaWalletAdapterSolanaSignAndSendTransactionFeature?
+      get solanaSignAndSendTransaction =>
+          variableAs<SolanaWalletAdapterSolanaSignAndSendTransactionFeature>(
+              "solana:signAndSendTransaction",
+              properties: ["signAndSendTransaction"]);
+  SolanaWalletAdapterSolanaSignTransactionFeature? get solanaSignTransaction =>
+      variableAs<SolanaWalletAdapterSolanaSignTransactionFeature>(
+          "solana:signTransaction",
+          properties: ['signTransaction']);
+  EthereumWalletAdapterSendTransactionFeature? get ethereumSendTransaction =>
+      variableAs<EthereumWalletAdapterSendTransactionFeature>(
+          "ethereum:sendTransaction",
+          properties: ['sendTransaction']);
 
-  bool hasSupport(String feature) {
-    final keys = Reflect.ownKeys_(this);
-    if (keys.isEmpty) return false;
-    return keys.contains(feature);
-  }
+  CosmosWalletAdapterStandardSignTransactionFeature?
+      get cosmosSignTransaction =>
+          variableAs<CosmosWalletAdapterStandardSignTransactionFeature>(
+              "cosmos:signTransaction",
+              properties: ['signTransaction']);
+  JSWalletStandardBitcoinSignTransactionFeature? get bitcoinSignTransaction =>
+      variableAs<JSWalletStandardBitcoinSignTransactionFeature>(
+          "bitcoin:signTransaction",
+          properties: ['signTransaction']);
+
+  // @JS("bitcoin:signTransaction")
+  // external JSWalletStandardBitcoinSignTransactionFeature?
+  //     bitcoinSignTransaction;
+
+  // bool hasSupport(String feature) {
+  //   final keys = Reflect.ownKeys_(this);
+  //   if (keys.isEmpty) return false;
+  //   return keys.contains(feature);
+  // }
 }
 
 @JS()
@@ -156,10 +191,11 @@ extension type JSWalletStandardRegister(JSAny _) implements JSAny {
 extension type JSWalletStandardAppIsReadyEvent(JSAny _) implements JSAny {}
 
 extension QuickJS on JSAny {
-  T? variableAs<T extends JSAny>(String key) {
+  T? variableAs<T extends JSAny>(String key,
+      {List<String> properties = const []}) {
     final keys = Reflect.ownKeys_(this);
     if (!keys.contains(key)) return null;
     final obj = Reflect.get(this, key.toJS, null);
-    return obj as T;
+    return MRTJsObject.as(object: obj, keys: properties);
   }
 }

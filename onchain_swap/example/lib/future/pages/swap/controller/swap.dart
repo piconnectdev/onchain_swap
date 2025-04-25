@@ -39,7 +39,8 @@ mixin SwapStateController on StateController, NetworkRepository {
   APPSetting get appSetting;
   final GlobalKey<PageProgressState> progressKey = GlobalKey();
   final _lock = SynchronizedLock();
-  late final SwapServiceApi api;
+  late SwapServiceApi _api;
+
   final CurrencyTextEdittingController amountController =
       CurrencyTextEdittingController(text: '');
   WalletTracker? _sourceWalletTracker;
@@ -202,7 +203,7 @@ mixin SwapStateController on StateController, NetworkRepository {
     if (sourceAsset?.network != asset.network) {
       _updateSourceAddress();
     }
-    _destinationAssets = api.getDestAssets(asset);
+    _destinationAssets = _api.getDestAssets(asset);
     if (!_destinationAssets.values.any((e) => e.contains(destinationAsset))) {
       destinationAsset = null;
     }
@@ -300,7 +301,7 @@ mixin SwapStateController on StateController, NetworkRepository {
       final r = await MethodUtils.call(() async {
         _status = SwapRouteStatus.pending;
         notify();
-        return await api.findRoute(
+        return await _api.findRoute(
           sourceAsset: source,
           destinationAsset: destination,
           amountIn: amount,
@@ -369,7 +370,7 @@ mixin SwapStateController on StateController, NetworkRepository {
     await Future.delayed(const Duration(seconds: 5));
     final r = await _lock.synchronized(() async {
       return MethodUtils.call(
-          () async => await api.builSwapTransaction(
+          () async => await _api.builSwapTransaction(
               sourceAddress: sourceAddress,
               destinationAddress: destinationAddress,
               swapRoute: route.route.route),
@@ -386,27 +387,40 @@ mixin SwapStateController on StateController, NetworkRepository {
     notify();
   }
 
-  Future<void> _init() async {
-    amountController.addListener(_listenChangeAmount);
-    // api = await SwapServiceApi.loadApi(DefaultSwapServiceApiParams.testnet());
-    api = await SwapServiceApi.loadApi(DefaultSwapServiceApiParams(
-        services:
-            appSetting.swapProviders.map((e) => e.service).toSet().toList(),
-        swapKitServiceProviders: appSetting.swapProviders
-            .whereType<SwapKitSwapServiceProvider>()
-            .toList()));
-    api.getSourceAssets().then((e) {
-      _sourceAssets = e;
-      updateSourceAsset(_sourceAssets.values.first.first);
-      updateDestinationAsset(_destinationAssets.values.first.last);
-      progressKey.backToIdle();
-      streamPrices();
+  Future<void> initSwap() async {
+    progressKey.progress();
+    _disposeSwap();
+    await _lock.synchronized(() async {
+      if (appSetting.chainType.isMainnet) {
+        _api = await SwapServiceApi.loadApi(DefaultSwapServiceApiParams(
+            services:
+                appSetting.swapProviders.map((e) => e.service).toSet().toList(),
+            swapKitServiceProviders: appSetting.swapProviders
+                .whereType<SwapKitSwapServiceProvider>()
+                .toList()));
+      } else {
+        _api =
+            await SwapServiceApi.loadApi(DefaultSwapServiceApiParams.testnet());
+      }
+
+      _api.getSourceAssets().then((e) {
+        _sourceAssets = e;
+        updateSourceAsset(_sourceAssets.values.first.first);
+        updateDestinationAsset(_destinationAssets.values.first.last);
+        progressKey.backToIdle();
+        streamPrices();
+      });
+      amountController.addListener(_listenChangeAmount);
     });
   }
 
-  @override
-  void ready() {
-    super.ready();
-    _init();
+  void _disposeSwap() {
+    amountController.removeListener(_listenChangeAmount);
+    amountController.clear();
+    sourceWalletTracker?.dispose();
+    _sourceWalletTracker = null;
+    destinalWalletTracker?.dispose();
+    _destinalWalletTracker = null;
+    _cleanRoute();
   }
 }

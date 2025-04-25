@@ -21,6 +21,7 @@ import 'package:polkadot_dart/polkadot_dart.dart';
 mixin JSWeb3WalletWalletStandard<NETWORK extends SwapNetwork, ADDRESS,
         JSADDRESS extends JSWalletStandardAccount>
     on JSWeb3Wallet<NETWORK, ADDRESS, JSADDRESS> {
+  JSWalletStandardConnectFeature get connectStandard;
   JSWalletStandard<JSADDRESS> get wallet;
   JSWalletStandardFeatures get features;
   JSFunction? _disconnectCallback;
@@ -63,8 +64,7 @@ mixin JSWeb3WalletWalletStandard<NETWORK extends SwapNetwork, ADDRESS,
       }
       if (silent) return false;
 
-      final accounts =
-          await wallet.features!.standardConnect.connect<JSADDRESS>().toDart;
+      final accounts = await connectStandard.connect<JSADDRESS>().toDart;
       updateStatus(Web3WalletStatus.connect);
       updateAccounts(_filterAccounts(accounts.accounts_));
       return true;
@@ -88,6 +88,8 @@ class JSWeb3WalletWalletStandardEthereum extends JSWeb3Wallet<
   @override
   final JSWalletStandardFeatures features;
   final EthereumWalletAdapterSendTransactionFeature signTxFeature;
+  @override
+  final JSWalletStandardConnectFeature connectStandard;
 
   JSWeb3WalletWalletStandardEthereum(
       {required super.walletName,
@@ -95,16 +97,19 @@ class JSWeb3WalletWalletStandardEthereum extends JSWeb3Wallet<
       required this.wallet,
       required super.network,
       required this.features,
-      required this.signTxFeature})
+      required this.signTxFeature,
+      required this.connectStandard})
       : super(protocol: Web3WalletProtocol.walletStandard);
   static JSWeb3WalletWalletStandardEthereum? fromJs(
       {required JSWalletStandard wallet,
       required SwapEthereumNetwork network}) {
     final features = wallet.features;
     final request = features?.ethereumSendTransaction;
+    final connect = features?.standardConnect;
     if (!wallet.isMrtWallet ||
         features == null ||
         request == null ||
+        connect == null ||
         request.sendTransaction_ == null ||
         !wallet.hasSupportNetwork('ethereum')) {
       return null;
@@ -114,6 +119,7 @@ class JSWeb3WalletWalletStandardEthereum extends JSWeb3Wallet<
         icon: Web3WalletUtils.parseWalletImage(wallet.icon),
         wallet: wallet,
         network: network,
+        connectStandard: connect,
         features: features,
         signTxFeature: request);
   }
@@ -382,6 +388,8 @@ class JSWeb3WalletWalletStandardSolana
   final JSWalletStandard wallet;
   @override
   final JSWalletStandardFeatures features;
+  @override
+  final JSWalletStandardConnectFeature connectStandard;
   final SolanaWalletAdapterSolanaSignTransactionFeature signTransactionFeature;
   JSWeb3WalletWalletStandardSolana(
       {required super.walletName,
@@ -389,15 +397,18 @@ class JSWeb3WalletWalletStandardSolana
       required this.wallet,
       required super.network,
       required this.features,
-      required this.signTransactionFeature})
+      required this.signTransactionFeature,
+      required this.connectStandard})
       : super(protocol: Web3WalletProtocol.walletStandard);
 
   static JSWeb3WalletWalletStandardSolana? fromJs(
       {required JSWalletStandard wallet, required SwapSolanaNetwork network}) {
     final features = wallet.features;
     final signFeature = features?.solanaSignTransaction;
+    final connect = features?.standardConnect;
     if (features == null ||
         signFeature == null ||
+        connect == null ||
         signFeature.signTransaction_ == null ||
         !wallet.hasSupportNetwork('solana')) {
       return null;
@@ -407,6 +418,7 @@ class JSWeb3WalletWalletStandardSolana
         icon: Web3WalletUtils.parseWalletImage(wallet.icon),
         wallet: wallet,
         network: network,
+        connectStandard: connect,
         features: features,
         signTransactionFeature: signFeature);
   }
@@ -490,6 +502,8 @@ class JSWeb3WalletWalletStandardSubstrate extends JSWeb3Wallet<
   final JSWalletStandard<JSWalletStandardSubstrateAccount> wallet;
   @override
   final JSWalletStandardFeatures features;
+  @override
+  final JSWalletStandardConnectFeature connectStandard;
   final SubstrateWalletAdapterSubstrateSignTransactionFeature
       signTransactionFeature;
   JSWeb3WalletWalletStandardSubstrate(
@@ -498,7 +512,8 @@ class JSWeb3WalletWalletStandardSubstrate extends JSWeb3Wallet<
       required this.wallet,
       required super.network,
       required this.features,
-      required this.signTransactionFeature})
+      required this.signTransactionFeature,
+      required this.connectStandard})
       : super(protocol: Web3WalletProtocol.walletStandard);
 
   static JSWeb3WalletWalletStandardSubstrate? fromJs(
@@ -506,9 +521,11 @@ class JSWeb3WalletWalletStandardSubstrate extends JSWeb3Wallet<
       required SwapSubstrateNetwork network}) {
     final features = wallet.features;
     final signFeature = features?.substrateSignTransaction;
+    final connect = features?.standardConnect;
     if (!wallet.isMrtWallet ||
         features == null ||
         signFeature == null ||
+        connect == null ||
         signFeature.signTransaction_ == null ||
         !wallet.hasSupportNetwork('substrate')) {
       return null;
@@ -522,7 +539,8 @@ class JSWeb3WalletWalletStandardSubstrate extends JSWeb3Wallet<
         wallet: wallet as JSWalletStandard<JSWalletStandardSubstrateAccount>,
         network: network,
         features: features,
-        signTransactionFeature: signFeature);
+        signTransactionFeature: signFeature,
+        connectStandard: connect);
   }
 
   @override
@@ -595,15 +613,19 @@ class JSWeb3WalletWalletStandardCosmos extends JSWeb3Wallet<SwapCosmosNetwork,
   final JSWalletStandard<JSWalletStandardCosmosAccount> wallet;
   @override
   final JSWalletStandardFeatures features;
+  @override
+  final JSWalletStandardConnectFeature connectStandard;
   final CosmosWalletAdapterStandardSignTransactionFeature
       signTransactionFeature;
   static JSWeb3WalletWalletStandardCosmos? fromJs(
       {required JSWalletStandard wallet, required SwapCosmosNetwork network}) {
     final features = wallet.features;
     final signFeature = features?.cosmosSignTransaction;
+    final connect = features?.standardConnect;
     if (!wallet.isMrtWallet ||
         features == null ||
         signFeature == null ||
+        connect == null ||
         !wallet.hasSupportNetwork('cosmos') ||
         signFeature.signTransaction_ == null) {
       return null;
@@ -614,7 +636,8 @@ class JSWeb3WalletWalletStandardCosmos extends JSWeb3Wallet<SwapCosmosNetwork,
         wallet: wallet as JSWalletStandard<JSWalletStandardCosmosAccount>,
         network: network,
         features: features,
-        signTransactionFeature: signFeature);
+        signTransactionFeature: signFeature,
+        connectStandard: connect);
   }
 
   JSWeb3WalletWalletStandardCosmos(
@@ -623,6 +646,7 @@ class JSWeb3WalletWalletStandardCosmos extends JSWeb3Wallet<SwapCosmosNetwork,
       required this.wallet,
       required super.network,
       required this.features,
+      required this.connectStandard,
       required this.signTransactionFeature})
       : super(protocol: Web3WalletProtocol.walletStandard);
 
@@ -704,6 +728,8 @@ class JSWeb3WalletWalletStandardBitcoin extends JSWeb3Wallet<SwapBitcoinNetwork,
   @override
   bool get allowMultiSelect => true;
   @override
+  final JSWalletStandardConnectFeature connectStandard;
+  @override
   final JSWalletStandard<JSWalletStandardBitcoinAccount> wallet;
   @override
   final JSWalletStandardFeatures features;
@@ -714,14 +740,17 @@ class JSWeb3WalletWalletStandardBitcoin extends JSWeb3Wallet<SwapBitcoinNetwork,
       required this.wallet,
       required super.network,
       required this.features,
-      required this.signTransactionFeature})
+      required this.signTransactionFeature,
+      required this.connectStandard})
       : super(protocol: Web3WalletProtocol.walletStandard);
   static JSWeb3WalletWalletStandardBitcoin? fromJs(
       {required JSWalletStandard wallet, required SwapBitcoinNetwork network}) {
     final features = wallet.features;
     final signFeature = features?.bitcoinSignTransaction;
+    final connect = features?.standardConnect;
     if (!wallet.isMrtWallet ||
         features == null ||
+        connect == null ||
         signFeature == null ||
         signFeature.signTransaction_ == null ||
         !wallet.hasSupportNetwork(network.identifier)) {
@@ -733,7 +762,8 @@ class JSWeb3WalletWalletStandardBitcoin extends JSWeb3Wallet<SwapBitcoinNetwork,
         wallet: wallet as JSWalletStandard<JSWalletStandardBitcoinAccount>,
         network: network,
         features: features,
-        signTransactionFeature: signFeature);
+        signTransactionFeature: signFeature,
+        connectStandard: connect);
   }
 
   @override

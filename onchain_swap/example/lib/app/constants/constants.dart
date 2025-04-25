@@ -8,7 +8,7 @@ class APPConst {
   static const Duration oneSecoundDuration = Duration(seconds: 1);
   static const Duration twoSecoundDuration = Duration(seconds: 2);
   static const Duration tenSecoundDuration = Duration(seconds: 10);
-  static const String homepage = 'https://github.com/mrtnetwork';
+  static const String homepage = 'https://github.com/mrtnetwork/onchain_swap';
 
   static const double double80 = 80;
   static const double double40 = 40;

@@ -8,7 +8,6 @@ import 'package:example/future/theme/theme.dart';
 import 'package:example/future/widgets/custom_widgets.dart';
 import 'package:example/marketcap/prices/currency.dart';
 import 'package:flutter/material.dart';
-import 'package:onchain_swap/onchain_swap.dart';
 import 'color_selector.dart';
 import 'providers.dart';
 
@@ -40,12 +39,10 @@ class AppSettingView extends StatelessWidget {
                     ),
                     AppListTile(
                       onTap: () {
-                        controller.updateProviders((activeProviders) {
-                          return context
-                              .openSliverDialog<List<SwapServiceProvider>>(
+                        controller.updateProviders(() {
+                          return context.openSliverDialog(
                             label: 'update_services'.tr,
-                            sliver: (context) =>
-                                SelectSwapProvidersView(activeProviders),
+                            sliver: (context) => SelectSwapProvidersView(),
                           );
                         });
                       },

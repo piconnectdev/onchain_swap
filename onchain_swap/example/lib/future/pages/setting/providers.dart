@@ -1,12 +1,13 @@
+import 'package:blockchain_utils/blockchain_utils.dart';
 import 'package:example/app/constants/constants.dart';
+import 'package:example/future/pages/swap/controller/controller.dart';
 import 'package:example/future/state_managment/state_managment.dart';
 import 'package:example/future/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:onchain_swap/onchain_swap.dart';
 
 class SelectSwapProvidersView extends StatefulWidget {
-  final List<SwapServiceProvider> activeProviders;
-  const SelectSwapProvidersView(this.activeProviders, {super.key});
+  const SelectSwapProvidersView({super.key});
 
   @override
   State<SelectSwapProvidersView> createState() =>
@@ -15,6 +16,8 @@ class SelectSwapProvidersView extends StatefulWidget {
 
 class _SelectSwapProvidersViewState extends State<SelectSwapProvidersView>
     with SafeState<SelectSwapProvidersView> {
+  late HomeStateController controller;
+  ChainType chainType = ChainType.testnet;
   List<SwapServiceProvider> activeProviders = [];
   List<SwapServiceProvider> supportProviders = [];
 
@@ -26,47 +29,95 @@ class _SelectSwapProvidersViewState extends State<SelectSwapProvidersView>
     if (!activeProviders.remove(provider)) {
       activeProviders.add(provider);
     }
+    updateSettings();
+    updateState();
+  }
+
+  void updateSettings() {
+    final providers = activeProviders.clone();
+    providers.sort((a, b) =>
+        supportProviders.indexOf(a).compareTo(supportProviders.indexOf(b)));
+    controller.setAppSetting(controller.appSetting
+        .copyWith(chainType: chainType, swapProviders: providers));
+  }
+
+  void toggleChainType() {
+    activeProviders.clear();
+    switch (chainType) {
+      case ChainType.testnet:
+        chainType = ChainType.mainnet;
+        supportProviders = SwapConstants.supportProviders;
+
+        break;
+      case ChainType.mainnet:
+        chainType = ChainType.testnet;
+        supportProviders = SwapConstants.testnetProviders;
+        break;
+    }
+    activeProviders.addAll(supportProviders);
+    updateSettings();
     updateState();
   }
 
   @override
-  void initState() {
-    super.initState();
-    supportProviders = SwapConstants.supportProviders;
-    activeProviders = widget.activeProviders;
+  void onInitOnce() {
+    controller = context.mainController;
+    chainType = controller.appSetting.chainType;
+    switch (chainType) {
+      case ChainType.mainnet:
+        supportProviders = SwapConstants.supportProviders;
+        break;
+      case ChainType.testnet:
+        supportProviders = SwapConstants.testnetProviders;
+        break;
+    }
+    activeProviders = controller.appSetting.swapProviders.clone();
+    super.onInitOnce();
   }
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Column(children: [
-        ListView(
-          shrinkWrap: true,
-          physics: WidgetConstant.noScrollPhysics,
-          children: List.generate(supportProviders.length, (index) {
-            final provider = supportProviders[index];
-            return ContainerWithBorder(
-              onRemove: () {
-                addOrRemoveProvider(provider);
-              },
-              onRemoveIcon: APPCheckBox(
-                value: activeProviders.contains(provider),
-                backgroundColor: context.onPrimaryContainer,
-                color: context.primaryContainer,
-              ),
-              child: Row(
-                children: [
-                  CircleServiceProviderImageView(provider,
-                      radius: APPConst.circleRadius25),
-                  WidgetConstant.width8,
-                  Expanded(
-                      child: OneLineTextWidget(provider.name,
-                          style: context.onPrimaryTextTheme.bodyMedium))
-                ],
-              ),
-            );
-          }),
-        )
+        AppSwitchListTile(
+          value: chainType.isMainnet,
+          title: Text("mainnet".tr),
+          onChanged: (p0) => toggleChainType(),
+        ),
+        Divider(),
+        APPAnimatedSize(
+          isActive: true,
+          onDeactive: (context) => WidgetConstant.sizedBox,
+          onActive: (context) => ListView(
+            key: ValueKey(supportProviders.length),
+            shrinkWrap: true,
+            physics: WidgetConstant.noScrollPhysics,
+            children: List.generate(supportProviders.length, (index) {
+              final provider = supportProviders[index];
+              return ContainerWithBorder(
+                onRemove: () {
+                  addOrRemoveProvider(provider);
+                },
+                onRemoveIcon: APPCheckBox(
+                  value: activeProviders.contains(provider),
+                  backgroundColor: context.onPrimaryContainer,
+                  color: context.primaryContainer,
+                ),
+                child: Row(
+                  children: [
+                    CircleServiceProviderImageView(provider,
+                        radius: APPConst.circleRadius25),
+                    WidgetConstant.width8,
+                    Expanded(
+                        child: OneLineTextWidget(provider.name,
+                            style: context.onPrimaryTextTheme.bodyMedium))
+                  ],
+                ),
+              );
+            }),
+          ),
+        ),
+        WidgetConstant.height40,
       ]),
     );
   }
