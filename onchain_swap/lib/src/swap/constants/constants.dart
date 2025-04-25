@@ -36,16 +36,16 @@ class SwapConstants {
       name: "Chainflip Cross-Chain Swaps",
       identifier: "CHAINFLIP",
       logoUrl:
-          "https://storage.googleapis.com/token-list-swapkit/images/eth.flip-0x826180541412d574cf1336d22c0c0a287822678a.png",
-      url: "https://storage.googleapis.com/token-list-swapkit/chainflip.json",
+          "https://coin-images.coingecko.com/coins/images/25576/large/kdt_AgmT_400x400.png?1696524709",
+      url: null,
       crossChain: true,
       service: SwapServiceType.chainFlip);
   static const mayaProvider = SwapServiceProvider(
       name: "MayaChain Cross-Chain Liquidity",
       identifier: "MAYACHAIN",
       logoUrl:
-          "https://storage.googleapis.com/token-list-swapkit/images/maya.cacao.png",
-      url: "https://storage.googleapis.com/token-list-swapkit/mayachain.json",
+          "https://coin-images.coingecko.com/coins/images/29996/large/cacao.png?1696528920",
+      url: null,
       crossChain: true,
       service: SwapServiceType.maya);
   static const skipGo = SwapServiceProvider(
@@ -59,16 +59,16 @@ class SwapConstants {
       name: "Thorchain Decentralized Liquidity",
       identifier: "THORCHAIN",
       logoUrl:
-          "https://storage.googleapis.com/token-list-swapkit/images/thor.rune.png",
-      url: "https://storage.googleapis.com/token-list-swapkit/thorchain.json",
+          "https://coin-images.coingecko.com/coins/images/6595/large/Rune200x200.png?1696506946",
+      url: null,
       crossChain: true,
       service: SwapServiceType.thor);
   static const oneInch = SwapKitSwapServiceProvider(
       name: "1inch Aggregator",
       identifier: "ONEINCH",
       logoUrl:
-          "https://storage.googleapis.com/token-list-swapkit/images/eth.1inch-0x111111111117dc0aa78b770fa6a738034120c302.png",
-      url: "https://storage.googleapis.com/token-list-swapkit/oneinch.json",
+          "https://coin-images.coingecko.com/coins/images/13469/large/1inch-token.png?1696513230",
+      url: null,
       crossChain: false);
 
   static const arbitrum = SwapEthereumNetwork(

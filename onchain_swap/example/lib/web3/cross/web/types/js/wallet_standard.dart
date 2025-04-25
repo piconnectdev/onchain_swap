@@ -154,3 +154,12 @@ extension type JSWalletStandardRegister(JSAny _) implements JSAny {
 }
 @JS()
 extension type JSWalletStandardAppIsReadyEvent(JSAny _) implements JSAny {}
+
+extension QuickJS on JSAny {
+  T? variableAs<T extends JSAny>(String key) {
+    final keys = Reflect.ownKeys_(this);
+    if (!keys.contains(key)) return null;
+    final obj = Reflect.get(this, key.toJS, null);
+    return obj as T;
+  }
+}

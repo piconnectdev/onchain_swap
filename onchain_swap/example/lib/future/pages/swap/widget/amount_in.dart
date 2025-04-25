@@ -60,8 +60,7 @@ class SetupSwapAmoutView extends StatelessWidget {
 
                           Align(
                             alignment: Alignment.topRight,
-                            child: CircleAPPImageView(
-                                sourceAsset?.network.logoUrl,
+                            child: CircleNetworkImageView(sourceAsset?.network,
                                 radius: 10),
                           )
                         ],

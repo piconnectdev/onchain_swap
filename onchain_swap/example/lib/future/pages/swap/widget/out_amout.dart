@@ -43,8 +43,8 @@ class SwapAmountOutView extends StatelessWidget {
                             CircleTokenImageView(destinationAsset, radius: 35),
                             Align(
                               alignment: Alignment.topRight,
-                              child: CircleAPPImageView(
-                                  destinationAsset?.network.logoUrl,
+                              child: CircleNetworkImageView(
+                                  destinationAsset?.network,
                                   radius: 10),
                             )
                           ],

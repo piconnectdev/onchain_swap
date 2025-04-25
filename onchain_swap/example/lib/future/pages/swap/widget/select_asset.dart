@@ -99,7 +99,7 @@ class _AsseetsState extends State<SwapSelectAssetView>
                         destinations: List.generate(networks.length, (index) {
                           final network = networks[index];
                           return _NavigationRailDestination(
-                              logoUrl: network.logoUrl, disabled: false);
+                              network: network, disabled: false);
                         }),
                         selectedIndex: selectedIndex),
                   ),
@@ -177,12 +177,12 @@ class _AsseetsState extends State<SwapSelectAssetView>
 
 class _NavigationRailDestination extends NavigationRailDestination {
   _NavigationRailDestination(
-      {required String? logoUrl, required super.disabled})
+      {required SwapNetwork? network, required super.disabled})
       : super(
             label: WidgetConstant.sizedBox,
             icon: Opacity(
                 opacity: disabled ? 0.3 : 1,
-                child: CircleAPPImageView(logoUrl, radius: 15)));
+                child: CircleNetworkImageView(network, radius: 15)));
 }
 
 // class _AssetProviderView extends StatelessWidget {
