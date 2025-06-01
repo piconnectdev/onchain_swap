@@ -1,0 +1,22 @@
+PODS:
+  - FlutterMacOS (1.0.0)
+  - onchain_bridge (0.0.1):
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - onchain_bridge (from `Flutter/ephemeral/.symlinks/plugins/onchain_bridge/macos`)
+
+EXTERNAL SOURCES:
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+  onchain_bridge:
+    :path: Flutter/ephemeral/.symlinks/plugins/onchain_bridge/macos
+
+SPEC CHECKSUMS:
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
+  onchain_bridge: 2ad22673c5695a1460d27d8223510a2c12e67949
+
+PODFILE CHECKSUM: 7eb978b976557c8c1cd717d8185ec483fd090a82
+
+COCOAPODS: 1.15.2
