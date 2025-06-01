@@ -488,13 +488,13 @@ class SwapKitRouteMetaChainFlip {
 
 enum SwapKitRouteMetaTag {
   /// Best overall route based on output and speed.
-  RECOMMENDED("RECOMMENDED"),
+  recommended("RECOMMENDED"),
 
   /// The route with the maximum output.
-  CHEAPEST("CHEAPEST"),
+  cheapest("CHEAPEST"),
 
   /// The route with the shortest total estimated time.
-  FASTEST("FASTEST");
+  fastest("FASTEST");
 
   final String name;
   const SwapKitRouteMetaTag(this.name);

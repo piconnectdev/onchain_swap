@@ -65,6 +65,7 @@ abstract class SwapRouteTransactionOperation<NETWORK> {
 
 abstract class SwapRouteTransactionTransferDetails<NETWORK extends SwapNetwork>
     implements SwapRouteTransactionOperation<NETWORK> {
+  @override
   abstract final NETWORK network;
   abstract final SwapAmount amount;
   abstract final String? memo;

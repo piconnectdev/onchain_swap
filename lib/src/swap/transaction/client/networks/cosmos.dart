@@ -24,12 +24,13 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
       required this.network,
       required this.networkInfo});
 
+  @override
   Future<String> chainId() async {
     if (_chainId != null) return _chainId!;
     final chainStatus = await provider.request(TendermintRequestStatus());
     _chainId = chainStatus["node_info"]?["network"];
     if (_chainId == null) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Unexpected data received instead of the chain ID.");
     }
     return _chainId!;
@@ -42,7 +43,7 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
     final client = SwapCosmosClient(
         provider: provider, network: network, networkInfo: chainInfo);
     if (!(await client.initSwapClient())) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "The Chain ID is not compatible with the current network.");
     }
 
@@ -50,6 +51,7 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
         provider: provider, network: network, networkInfo: chainInfo);
   }
 
+  @override
   Future<List<Coin>> getAddressCoins(CosmosBaseAddress address) async {
     final request = QuerySpendableBalancesRequest(address: address);
     final result =
@@ -57,6 +59,7 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
     return result.balances;
   }
 
+  @override
   Future<BaseAccount> getAccount(CosmosBaseAddress address) async {
     try {
       final request = QueryAccountRequest(address);
@@ -65,12 +68,13 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
       return result.account.baseAccount;
     } on RPCError catch (e) {
       if (e.errorCode == 22) {
-        throw DartCosmosSdkPluginException("Account not found.");
+        throw const DartCosmosSdkPluginException("Account not found.");
       }
       rethrow;
     }
   }
 
+  @override
   Future<SimulateResponse> simulateTx(List<int> txBytes,
       {List<CosmosMessage> txMessages = const []}) async {
     return await provider
@@ -85,6 +89,7 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
     return nativeToken?.amount ?? BigInt.zero;
   }
 
+  @override
   Future<String> broadcastTransaction(List<int> txRaw) async {
     final result = await provider.request(TendermintRequestBroadcastTxCommit(
         BytesUtils.toHexString(txRaw, prefix: "0x")));
@@ -98,14 +103,16 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
     return result.hash;
   }
 
+  @override
   Future<ThorNodeNetworkConstants> getThorNodeConstants() async {
     throw UnimplementedError();
   }
 
+  @override
   Future<bool> isEthermint() async {
     try {
       await provider.request(TendermintRequestAbciQuery(
-          request: EvmosEthermintEVMV1QueryParamsRequest()));
+          request: const EvmosEthermintEVMV1QueryParamsRequest()));
       return true;
     } on RPCError catch (e) {
       if (e.errorCode == 6) return false;
@@ -113,12 +120,14 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
     }
   }
 
+  @override
   Future<BigRational> getEthermintBaseFee() async {
     final chainStatus = await provider.request(TendermintRequestAbciQuery(
-        request: EvmosEthermintEVMV1QueryBaseFeeRequest()));
+        request: const EvmosEthermintEVMV1QueryBaseFeeRequest()));
     return BigRational(BigintUtils.parse(chainStatus.baseFee));
   }
 
+  @override
   Future<CosmosSwapTransactionRequirment> getSwapTransactionRequirment(
       CosmosBaseAddress address) async {
     final cosmosAccount = await getAccount(address);
@@ -142,7 +151,8 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
   @override
   CosmosSwapNetworkReuirment get chainInfo {
     if (networkInfo == null) {
-      throw DartOnChainSwapPluginException("Missing cosmos chain information.");
+      throw const DartOnChainSwapPluginException(
+          "Missing cosmos chain information.");
     }
     return CosmosSwapNetworkReuirment(
         native: networkInfo!.native, feeTokens: networkInfo!.fees);
@@ -165,8 +175,8 @@ class SwapCosmosClient implements BaseSwapCosmosClient {
 
   @override
   Future<BigInt?> getBlockHeight() async {
-    final block = await provider
-        .request(TendermintRequestAbciQuery(request: GetLatestBlockRequest()));
+    final block = await provider.request(
+        TendermintRequestAbciQuery(request: const GetLatestBlockRequest()));
     return block.block?.header.height;
   }
 }

@@ -20,7 +20,7 @@ class CfSwapUtils {
       required BaseSwapAsset destinationAsset}) {
     final r = tolerance.toDouble();
     if (r.isNegative || r > 100) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Invalid tolerance. tolerance must be between 0 and 100");
     }
     final toleranceBig = BigRational.parseDecimal(r.toString());
@@ -36,7 +36,7 @@ class CfSwapUtils {
       required BaseSwapAsset destinationAsset}) {
     final r = tolerance.toDouble();
     if (r.isNegative || r > 100) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Invalid tolerance. tolerance must be between 0 and 100");
     }
     final toleranceBig = BigRational.parseDecimal(r.toString());

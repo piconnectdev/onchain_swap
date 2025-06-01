@@ -10,9 +10,7 @@ import 'route.dart';
 class ThorSwapService extends SwapService<BaseSwapAsset, ThorNodeProvider,
     ThorSwapRoute, ThorQuoteSwapParams> {
   ThorSwapService(
-      {required ThorNodeProvider provider,
-      SwapServiceType service = SwapServiceType.thor})
-      : super(service: service, provider: provider);
+      {required super.provider, super.service = SwapServiceType.thor});
 
   @override
   Future<List<BaseSwapAsset>> loadAssets() async {
@@ -62,7 +60,6 @@ class ThorSwapService extends SwapService<BaseSwapAsset, ThorNodeProvider,
 
   @override
   Future<List<ThorSwapRoute>> createRoutes(ThorQuoteSwapParams params) async {
-    print("come routes?!");
     List<ThorSwapRoute> quotes = [];
     final q1 = await _quote(params);
     final q2 = await _quote(params, streamingInterval: 1);

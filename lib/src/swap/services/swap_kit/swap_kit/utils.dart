@@ -1,7 +1,7 @@
 import 'package:blockchain_utils/utils/utils.dart';
 import 'package:on_chain/on_chain.dart';
 import 'package:onchain_swap/src/onchain_swap_base.dart';
-import 'package:onchain_swap/src/swap/transaction/const/abis/1inch_agg.dart';
+import 'package:onchain_swap/src/swap/transaction/const/abis/one_inch_agg.dart';
 
 class SwapKitSwapUtils {
   static SwapRouteEthereumCallContractTransactionOperation parseEthSwapData(
@@ -16,7 +16,7 @@ class SwapKitSwapUtils {
         final dataBytes = BytesUtils.fromHexString(ethTx.data);
         final func = abi.findFunctionFromSelector(dataBytes);
         if (func == null) {
-          throw DartAptosPluginException(
+          throw const DartAptosPluginException(
               "Invalid input data. No matching function found on 1inch router.");
         }
         return SwapRouteEthereumCallContractTransactionOperation(
@@ -28,7 +28,7 @@ class SwapKitSwapUtils {
             data: ethTx.data,
             value: ethTx.value);
       default:
-        throw DartOnChainSwapPluginException("Unsuported contract.");
+        throw const DartOnChainSwapPluginException("Unsuported contract.");
     }
   }
 }

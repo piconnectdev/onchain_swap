@@ -14,10 +14,10 @@ class SwapKitSwapService extends SwapService<BaseSwapAsset, SwapKitProvider,
     SwapKitSwapRoute, SwapKitQuoteSwapParams> {
   final List<SwapKitSwapServiceProvider> providers;
   SwapKitSwapService(
-      {required SwapKitProvider provider,
+      {required super.provider,
       required List<SwapKitSwapServiceProvider> providers})
       : providers = providers.immutable,
-        super(service: SwapServiceType.swapKit, provider: provider);
+        super(service: SwapServiceType.swapKit);
 
   List<BaseSwapAsset> _assets = [];
 
@@ -70,6 +70,7 @@ class SwapKitSwapService extends SwapService<BaseSwapAsset, SwapKitProvider,
     return providers;
   }
 
+  @override
   Future<List<BaseSwapAsset>> loadAssets() async {
     if (_assets.isNotEmpty) return _assets.clone();
     List<BaseSwapAsset> allAssets = [];
@@ -79,8 +80,6 @@ class SwapKitSwapService extends SwapService<BaseSwapAsset, SwapKitProvider,
         allAssets.addAll(assets);
       } catch (_) {}
     }
-    print(
-        "assets ${allAssets.length} ${allAssets.map((e) => e.network).toSet().length}");
     _assets = allAssets;
     return _assets.clone();
   }
@@ -89,7 +88,7 @@ class SwapKitSwapService extends SwapService<BaseSwapAsset, SwapKitProvider,
   Future<List<SwapKitSwapRoute>> createRoutes(
       SwapKitQuoteSwapParams params) async {
     if (params.sourceAsset.network != params.destinationAsset.network) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Mismatch between source and destination networks.");
     }
     final network = params.sourceAsset.network;

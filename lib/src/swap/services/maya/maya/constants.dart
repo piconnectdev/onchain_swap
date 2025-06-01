@@ -51,7 +51,7 @@ class MayaSwapConstants {
       coingeckoId: "makerdao-arbitrum-bridged-dai-arbitrum-one",
       contractAddress: ETHAddress("0xDA10009CBD5D07DD0CECC66161FC93D7C9000DA1"),
       fullName: "MakerDAO Arbitrum Bridged DAI (Arbitrum One)");
-  static final ETHSwapAsset arbEth = ETHSwapAsset(
+  static const ETHSwapAsset arbEth = ETHSwapAsset(
       symbol: "ETH",
       providerIdentifier: "ARB.ETH",
       decimal: 18,
@@ -170,7 +170,7 @@ class MayaSwapConstants {
       coingeckoId: "yum",
       contractAddress: ETHAddress("0x9F41B34F42058A7B74672055A5FAE22C4B113FD1"),
       fullName: "Yum");
-  static final BitcoinSwapAsset btcBtc = BitcoinSwapAsset(
+  static const BitcoinSwapAsset btcBtc = BitcoinSwapAsset(
       symbol: "BTC",
       providerIdentifier: "BTC.BTC",
       decimal: 8,
@@ -180,7 +180,7 @@ class MayaSwapConstants {
           "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
       coingeckoId: "bitcoin",
       fullName: "Bitcoin");
-  static final BitcoinSwapAsset dashDash = BitcoinSwapAsset(
+  static const BitcoinSwapAsset dashDash = BitcoinSwapAsset(
       symbol: "DASH",
       providerIdentifier: "DASH.DASH",
       decimal: 8,
@@ -190,7 +190,7 @@ class MayaSwapConstants {
           "https://coin-images.coingecko.com/coins/images/19/large/dash-logo.png?1696501423",
       coingeckoId: "dash",
       fullName: "Dash");
-  static final ETHSwapAsset ethEth = ETHSwapAsset(
+  static const ETHSwapAsset ethEth = ETHSwapAsset(
       symbol: "ETH",
       providerIdentifier: "ETH.ETH",
       decimal: 18,
@@ -245,7 +245,7 @@ class MayaSwapConstants {
       coingeckoId: "wrapped-steth",
       contractAddress: ETHAddress("0x7F39C581F595B53C5CB19BD0B3F8DA6C935E2CA0"),
       fullName: "Wrapped stETH");
-  static final CosmosSwapAsset kujiKuji = CosmosSwapAsset(
+  static const CosmosSwapAsset kujiKuji = CosmosSwapAsset(
       symbol: "KUJI",
       providerIdentifier: "KUJI.KUJI",
       decimal: 6,
@@ -256,7 +256,7 @@ class MayaSwapConstants {
           "https://coin-images.coingecko.com/coins/images/20685/large/kuji-200x200.png?1696520085",
       coingeckoId: "kujira",
       fullName: "Kujira");
-  static final CosmosSwapAsset kujiUsk = CosmosSwapAsset(
+  static const CosmosSwapAsset kujiUsk = CosmosSwapAsset(
       symbol: "USK",
       providerIdentifier: "KUJI.USK",
       decimal: 6,
@@ -268,7 +268,7 @@ class MayaSwapConstants {
           "https://coin-images.coingecko.com/coins/images/27274/large/usk.png?1696526326",
       coingeckoId: "usk",
       fullName: "USK");
-  static final CosmosSwapAsset thorRune = CosmosSwapAsset(
+  static const CosmosSwapAsset thorRune = CosmosSwapAsset(
       symbol: "RUNE",
       providerIdentifier: "THOR.RUNE",
       decimal: 8,

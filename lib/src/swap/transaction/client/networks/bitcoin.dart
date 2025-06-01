@@ -21,19 +21,21 @@ class SwapBitcoinClient implements BaseSwapBitcoinClient {
       required SwapBitcoinNetwork network}) async {
     final client = SwapBitcoinClient(provider: provider, network: network);
     if (!(await client.initSwapClient())) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "The Genesis Hash is not compatible with the current network.");
     }
     return client;
   }
 
+  @override
   Future<BigRational> estimateFeePerByte(SwapBitcoinNetwork network) async {
     final fee = await provider.request(ElectrumRequestEstimateFee());
     if (fee == null) {
       if (!network.chainType.isMainnet) {
         return _BitcoinClientConst.testnetFeeRate;
       }
-      throw DartOnChainSwapPluginException("Failed to fetch network fee rate.");
+      throw const DartOnChainSwapPluginException(
+          "Failed to fetch network fee rate.");
     }
     return BigRational(fee) / BigRational.from(1024);
   }
@@ -45,11 +47,13 @@ class SwapBitcoinClient implements BaseSwapBitcoinClient {
     return utxos.fold<BigInt>(BigInt.zero, (a, b) => a + b.value);
   }
 
+  @override
   Future<String> sendTransaction(String transaction) async {
     return await provider.request(
         ElectrumRequestBroadCastTransaction(transactionRaw: transaction));
   }
 
+  @override
   Future<List<PsbtUtxo>> getAccountsUtxos(
       List<BitcoinSpenderAddress> addresses) async {
     final utxos = await _getAccountsUtxo(addresses);
@@ -89,6 +93,7 @@ class SwapBitcoinClient implements BaseSwapBitcoinClient {
     return e.expand((e) => e).toList();
   }
 
+  @override
   Future<String> genesisHash() async {
     if (_genesis != null) return _genesis!;
     final header = await provider

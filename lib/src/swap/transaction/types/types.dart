@@ -227,7 +227,8 @@ class BitcoinSpenderAddress {
     final addressScript = address.baseAddress.toScriptPubKey();
     if (type.isP2sh) {
       if (p2shreedemScript == null) {
-        throw DartOnChainSwapPluginException("Missing p2sh redeem script.");
+        throw const DartOnChainSwapPluginException(
+            "Missing p2sh redeem script.");
       }
       P2shAddress p2shAddress;
       if (witnessScript != null) {
@@ -235,11 +236,12 @@ class BitcoinSpenderAddress {
         p2shAddress = P2shAddress.fromScript(
             script: addr.toScriptPubKey(), type: P2shAddressType.p2wshInP2sh);
         if (p2shAddress.toScriptPubKey() != currentAddress.toScriptPubKey()) {
-          throw DartOnChainSwapPluginException("Invalid p2sh redeem script.");
+          throw const DartOnChainSwapPluginException(
+              "Invalid p2sh redeem script.");
         }
       } else {
         if (BitcoinScriptUtils.isP2wsh(p2shreedemScript)) {
-          throw DartOnChainSwapPluginException(
+          throw const DartOnChainSwapPluginException(
               "Missing nested segwit p2sh witness script.");
         }
         bool isP2wpkh = BitcoinScriptUtils.isP2wpkh(p2shreedemScript);
@@ -250,27 +252,33 @@ class BitcoinSpenderAddress {
                 : P2shAddressType.p2pkInP2sh);
       }
       if (addressScript != p2shAddress.toScriptPubKey()) {
-        throw DartOnChainSwapPluginException("Invalid p2sh or witness script.");
+        throw const DartOnChainSwapPluginException(
+            "Invalid p2sh or witness script.");
       }
       currentAddress = p2shAddress;
     } else if (isWitness) {
       if (witnessScript == null) {
-        throw DartOnChainSwapPluginException("Missing p2wsh witness script.");
+        throw const DartOnChainSwapPluginException(
+            "Missing p2wsh witness script.");
       }
       final addr = P2wshAddress.fromScript(script: witnessScript);
       if (addr.toScriptPubKey() != addressScript) {
-        throw DartOnChainSwapPluginException("Invalid p2wsh witness script.");
+        throw const DartOnChainSwapPluginException(
+            "Invalid p2wsh witness script.");
       }
     } else if (type.isP2tr) {
       if (taprootInternal == null) {
-        throw DartOnChainSwapPluginException("Missing taproot internal key.");
+        throw const DartOnChainSwapPluginException(
+            "Missing taproot internal key.");
       }
       if (taprootInternal.length != EcdsaKeysConst.pointCoordByteLen) {
-        throw DartOnChainSwapPluginException("Invalid taproot internal key.");
+        throw const DartOnChainSwapPluginException(
+            "Invalid taproot internal key.");
       }
       final addr = P2trAddress.fromInternalKey(internalKey: taprootInternal);
       if (addr.toScriptPubKey() != addressScript) {
-        throw DartOnChainSwapPluginException("Invalid taproot internal key.");
+        throw const DartOnChainSwapPluginException(
+            "Invalid taproot internal key.");
       }
     }
     return BitcoinSpenderAddress._(
@@ -384,7 +392,8 @@ class CosmosSwapNetworkReuirment {
       {required CosmosSdkAsset native,
       required List<CosmosSdkAsset> feeTokens}) {
     if (feeTokens.isEmpty) {
-      throw DartOnChainSwapPluginException("At least one fee token required.");
+      throw const DartOnChainSwapPluginException(
+          "At least one fee token required.");
     }
     return CosmosSwapNetworkReuirment._(native: native, feeTokens: feeTokens);
   }

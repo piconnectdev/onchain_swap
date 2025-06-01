@@ -57,7 +57,7 @@ class ThorSwapConstants {
     ltcLtc
   ].immutable;
 
-  static final ETHSwapAsset avaxAvax = ETHSwapAsset(
+  static const ETHSwapAsset avaxAvax = ETHSwapAsset(
       symbol: "AVAX",
       providerIdentifier: "AVAX.AVAX",
       decimal: 18,
@@ -122,7 +122,7 @@ class ThorSwapConstants {
       coingeckoId: "coinbase-wrapped-btc",
       contractAddress: ETHAddress("0xCBB7C0000AB88B473B1F5AFD9EF808440EED33BF"),
       fullName: "Coinbase Wrapped BTC");
-  static final ETHSwapAsset baseEth = ETHSwapAsset(
+  static const ETHSwapAsset baseEth = ETHSwapAsset(
       symbol: "ETH",
       providerIdentifier: "BASE.ETH",
       decimal: 18,
@@ -146,7 +146,7 @@ class ThorSwapConstants {
       coingeckoId: "usd-coin",
       contractAddress: ETHAddress("0x833589FCD6EDB6E08F4C7C32D4F71B54BDA02913"),
       fullName: "USDC");
-  static final BitcoinSwapAsset bchBch = BitcoinSwapAsset(
+  static const BitcoinSwapAsset bchBch = BitcoinSwapAsset(
       symbol: "BCH",
       providerIdentifier: "BCH.BCH",
       decimal: 8,
@@ -156,7 +156,7 @@ class ThorSwapConstants {
           "https://coin-images.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1696501932",
       coingeckoId: "bitcoin-cash",
       fullName: "Bitcoin Cash");
-  static final ETHSwapAsset bscBnb = ETHSwapAsset(
+  static const ETHSwapAsset bscBnb = ETHSwapAsset(
       symbol: "BNB",
       providerIdentifier: "BSC.BNB",
       decimal: 18,
@@ -205,7 +205,7 @@ class ThorSwapConstants {
       coingeckoId: null,
       contractAddress: ETHAddress("0x55D398326F99059FF775485246999027B3197955"),
       fullName: "Tether");
-  static final BitcoinSwapAsset btcBtc = BitcoinSwapAsset(
+  static const BitcoinSwapAsset btcBtc = BitcoinSwapAsset(
       symbol: "BTC",
       providerIdentifier: "BTC.BTC",
       decimal: 8,
@@ -215,7 +215,7 @@ class ThorSwapConstants {
           "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
       coingeckoId: "bitcoin",
       fullName: "Bitcoin");
-  static final BitcoinSwapAsset dogeDoge = BitcoinSwapAsset(
+  static const BitcoinSwapAsset dogeDoge = BitcoinSwapAsset(
       symbol: "DOGE",
       providerIdentifier: "DOGE.DOGE",
       decimal: 8,
@@ -264,7 +264,7 @@ class ThorSwapConstants {
       coingeckoId: "defipulse-index",
       contractAddress: ETHAddress("0x1494CA1F11D487C2BBE4543E90080AEBA4BA3C2B"),
       fullName: "DeFi Pulse Index");
-  static final ETHSwapAsset ethEth = ETHSwapAsset(
+  static const ETHSwapAsset ethEth = ETHSwapAsset(
       symbol: "ETH",
       providerIdentifier: "ETH.ETH",
       decimal: 18,
@@ -455,7 +455,7 @@ class ThorSwapConstants {
       coingeckoId: "yearn-finance",
       contractAddress: ETHAddress("0x0BC529C00C6401AEF6D220BE8C6EA1667F6AD93E"),
       fullName: "yearn.finance");
-  static final CosmosSwapAsset gaiaAtom = CosmosSwapAsset(
+  static const CosmosSwapAsset gaiaAtom = CosmosSwapAsset(
       symbol: "ATOM",
       providerIdentifier: "GAIA.ATOM",
       decimal: 6,
@@ -466,7 +466,7 @@ class ThorSwapConstants {
           "https://coin-images.coingecko.com/coins/images/1481/large/cosmos_hub.png?1696502525",
       coingeckoId: "cosmos",
       fullName: "Cosmos Hub");
-  static final BitcoinSwapAsset ltcLtc = BitcoinSwapAsset(
+  static const BitcoinSwapAsset ltcLtc = BitcoinSwapAsset(
       symbol: "LTC",
       providerIdentifier: "LTC.LTC",
       decimal: 8,

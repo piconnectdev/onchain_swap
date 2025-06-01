@@ -1,12 +1,11 @@
 import 'package:blockchain_utils/helper/helper.dart';
 import 'package:onchain_swap/src/swap/services/thor/thor.dart';
 import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'constants.dart';
 
 class MayaSwapService extends ThorSwapService {
-  MayaSwapService({required ThorNodeProvider provider})
-      : super(service: SwapServiceType.maya, provider: provider);
+  MayaSwapService({required super.provider})
+      : super(service: SwapServiceType.maya);
 
   @override
   Future<List<BaseSwapAsset>> loadAssets() async {

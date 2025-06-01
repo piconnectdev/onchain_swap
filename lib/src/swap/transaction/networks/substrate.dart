@@ -32,7 +32,7 @@ class SwapRouteSubstrateTransactionBuilder extends SwapRouteTransactionBuilder<
       final signerInfo = await signer(operation.source);
       final signers = await signerInfo.signers();
       signers.firstWhere((e) => e == operation.source,
-          orElse: () => throw DartOnChainSwapPluginException(
+          orElse: () => throw const DartOnChainSwapPluginException(
               "None of the connected accounts match the source address of the transaction."));
       final signature = await signerInfo.signTransaction(transaction);
 
@@ -98,6 +98,7 @@ class SwapRouteSubstrateNativeTransactionOperation
         palletNameOrIndex: "balances", value: input, fromTemplate: false);
   }
 
+  @override
   Future<Web3TransactionSubstrate> _buildTransactions(
       BaseSwapSubstrateClient client) async {
     final balance = await client.getBalance(source);
@@ -109,7 +110,8 @@ class SwapRouteSubstrateNativeTransactionOperation
     final nonce = await client.getAccountNonce(source);
     final extersinc = client.api.metadata.extrinsicInfo();
     if (extersinc.isEmpty) {
-      throw DartOnChainSwapPluginException("Unsported metadata extersinc.");
+      throw const DartOnChainSwapPluginException(
+          "Unsported metadata extersinc.");
     }
     final ex = extersinc.first;
 
@@ -134,5 +136,6 @@ class SwapRouteSubstrateNativeTransactionOperation
   @override
   String get sourceAddress => source.address;
 
+  @override
   final String? tokenAddress = null;
 }

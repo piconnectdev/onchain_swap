@@ -61,9 +61,10 @@ class RPCFillOrKillX128Price extends RPCFillOrKillParam {
       {required super.refundAddress,
       required super.retryDurationBlocks,
       required this.minPriceX128});
-  RPCFillOrKillX128Price.fromJson(Map<String, dynamic> json)
+  RPCFillOrKillX128Price.fromJson(super.json)
       : minPriceX128 = json.as("minPriceX128"),
-        super.fromJson(json);
+        super.fromJson();
+  @override
   Map<String, dynamic> toJson() {
     return {
       "refundAddress": refundAddress,
@@ -79,9 +80,10 @@ class RPCFillOrKillSlippageTolerancePercent extends RPCFillOrKillParam {
       {required super.refundAddress,
       required super.retryDurationBlocks,
       required this.slippageTolerancePercent});
-  RPCFillOrKillSlippageTolerancePercent.fromJson(Map<String, dynamic> json)
+  RPCFillOrKillSlippageTolerancePercent.fromJson(super.json)
       : slippageTolerancePercent = json.as("slippageTolerancePercent"),
-        super.fromJson(json);
+        super.fromJson();
+  @override
   Map<String, dynamic> toJson() {
     return {
       "refundAddress": refundAddress,
@@ -508,7 +510,8 @@ class FeeInfo {
           FeeInput(base: BigInt.zero, quote: BigInt.zero),
       rangeTotalSwapInputs: FeeInput(base: BigInt.zero, quote: BigInt.zero),
       limitTotalSwapInputs: FeeInput(base: BigInt.zero, quote: BigInt.zero),
-      quoteAsset: UncheckedAssetAndChain(chain: 'Ethereum', asset: 'USDC'),
+      quoteAsset:
+          const UncheckedAssetAndChain(chain: 'Ethereum', asset: 'USDC'),
     );
   }
 }
@@ -1428,6 +1431,8 @@ class CfChain {
             return 6;
           case CfAssets.usdc:
             return 7;
+          default:
+            break;
         }
         break;
       case CfChain.solana:
@@ -1436,6 +1441,8 @@ class CfChain {
             return asset.variantId;
           case CfAssets.usdc:
             return 10;
+          default:
+            break;
         }
         break;
       default:
@@ -1461,7 +1468,7 @@ class AssetAndChain {
   }
 
   factory AssetAndChain.bitcoin() {
-    return AssetAndChain._(asset: CfAssets.btc, chain: CfChain.bitcoin);
+    return const AssetAndChain._(asset: CfAssets.btc, chain: CfChain.bitcoin);
   }
 
   factory AssetAndChain.ethereum({CfAssets asset = CfAssets.eth}) {
@@ -1471,7 +1478,7 @@ class AssetAndChain {
   }
 
   factory AssetAndChain.polkadot() {
-    return AssetAndChain._(asset: CfAssets.dot, chain: CfChain.polkadot);
+    return const AssetAndChain._(asset: CfAssets.dot, chain: CfChain.polkadot);
   }
 
   factory AssetAndChain.arbitrum({CfAssets asset = CfAssets.eth}) {

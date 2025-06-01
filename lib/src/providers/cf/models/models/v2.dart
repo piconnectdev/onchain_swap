@@ -410,7 +410,7 @@ class SwapStatusResponseCommonFields {
   final List<ChainFlipFee> fees;
   final int? lastStatechainUpdateAt;
 
-  SwapStatusResponseCommonFields({
+  const SwapStatusResponseCommonFields({
     required this.swapId,
     required this.destAddress,
     this.depositChannel,
@@ -459,31 +459,18 @@ class SwapStatusResponseCommonFields {
 
 class Waiting extends SwapStatusResponseCommonFields
     implements SwapStatusResponseV2 {
-  final DepositChannelFields depositChannel;
-
-  Waiting({
-    required String swapId,
-    required String destAddress,
-    required this.depositChannel,
+  const Waiting({
+    required super.swapId,
+    required super.destAddress,
+    required DepositChannelFields super.depositChannel,
     required this.state,
-    CcmParams? ccmParams,
-    Boost? boost,
-    num? estimatedDurationSeconds,
-    int? srcChainRequiredBlockConfirmations,
-    required List<ChainFlipFee> fees,
-    int? lastStatechainUpdateAt,
-  }) : super(
-          swapId: swapId,
-          destAddress: destAddress,
-          depositChannel: depositChannel,
-          ccmParams: ccmParams,
-          boost: boost,
-          estimatedDurationSeconds: estimatedDurationSeconds,
-          srcChainRequiredBlockConfirmations:
-              srcChainRequiredBlockConfirmations,
-          fees: fees,
-          lastStatechainUpdateAt: lastStatechainUpdateAt,
-        );
+    super.ccmParams,
+    super.boost,
+    super.estimatedDurationSeconds,
+    super.srcChainRequiredBlockConfirmations,
+    required super.fees,
+    super.lastStatechainUpdateAt,
+  }) : super();
 
   factory Waiting.fromJson(Map<String, dynamic> json) {
     return Waiting(
@@ -507,10 +494,11 @@ class Waiting extends SwapStatusResponseCommonFields
   @override
   Map<String, dynamic> toJson() {
     final data = super.toJson();
-    data['depositChannel'] = depositChannel.toJson();
+    data['depositChannel'] = depositChannel?.toJson();
     return data;
   }
 
+  @override
   final String state;
 
   @override
@@ -527,29 +515,18 @@ class Receiving extends SwapStatusResponseCommonFields
   final String state;
 
   Receiving({
-    required String swapId,
-    required String destAddress,
+    required super.swapId,
+    required super.destAddress,
     required this.deposit,
     required this.state,
-    DepositChannelFields? depositChannel,
-    CcmParams? ccmParams,
-    Boost? boost,
-    num? estimatedDurationSeconds,
-    int? srcChainRequiredBlockConfirmations,
-    required List<ChainFlipFee> fees,
-    int? lastStatechainUpdateAt,
-  }) : super(
-          swapId: swapId,
-          destAddress: destAddress,
-          depositChannel: depositChannel,
-          ccmParams: ccmParams,
-          boost: boost,
-          estimatedDurationSeconds: estimatedDurationSeconds,
-          srcChainRequiredBlockConfirmations:
-              srcChainRequiredBlockConfirmations,
-          fees: fees,
-          lastStatechainUpdateAt: lastStatechainUpdateAt,
-        );
+    super.depositChannel,
+    super.ccmParams,
+    super.boost,
+    super.estimatedDurationSeconds,
+    super.srcChainRequiredBlockConfirmations,
+    required super.fees,
+    super.lastStatechainUpdateAt,
+  });
 
   factory Receiving.fromJson(Map<String, dynamic> json) {
     return Receiving(
@@ -590,32 +567,19 @@ class Swapping extends Receiving {
   final SwapFields swap;
 
   Swapping({
-    required String swapId,
-    required String destAddress,
-    required DepositFields deposit,
+    required super.swapId,
+    required super.destAddress,
+    required super.deposit,
     required this.swap,
-    required String state,
-    DepositChannelFields? depositChannel,
-    CcmParams? ccmParams,
-    Boost? boost,
-    num? estimatedDurationSeconds,
-    int? srcChainRequiredBlockConfirmations,
-    required List<ChainFlipFee> fees,
-    int? lastStatechainUpdateAt,
-  }) : super(
-          swapId: swapId,
-          state: state,
-          destAddress: destAddress,
-          deposit: deposit,
-          depositChannel: depositChannel,
-          ccmParams: ccmParams,
-          boost: boost,
-          estimatedDurationSeconds: estimatedDurationSeconds,
-          srcChainRequiredBlockConfirmations:
-              srcChainRequiredBlockConfirmations,
-          fees: fees,
-          lastStatechainUpdateAt: lastStatechainUpdateAt,
-        );
+    required super.state,
+    super.depositChannel,
+    super.ccmParams,
+    super.boost,
+    super.estimatedDurationSeconds,
+    super.srcChainRequiredBlockConfirmations,
+    required super.fees,
+    super.lastStatechainUpdateAt,
+  });
 
   factory Swapping.fromJson(Map<String, dynamic> json) {
     return Swapping(
@@ -654,33 +618,21 @@ class Sending extends Receiving {
   final EgressFields? refundEgress;
 
   Sending({
-    required String swapId,
-    required String destAddress,
-    required DepositFields deposit,
+    required super.swapId,
+    required super.destAddress,
+    required super.deposit,
     required this.swap,
-    required String state,
+    required super.state,
     this.swapEgress,
     this.refundEgress,
-    DepositChannelFields? depositChannel,
-    CcmParams? ccmParams,
-    Boost? boost,
-    num? estimatedDurationSeconds,
-    int? srcChainRequiredBlockConfirmations,
-    required List<ChainFlipFee> fees,
-    int? lastStatechainUpdateAt,
-  }) : super(
-            swapId: swapId,
-            destAddress: destAddress,
-            deposit: deposit,
-            depositChannel: depositChannel,
-            ccmParams: ccmParams,
-            boost: boost,
-            estimatedDurationSeconds: estimatedDurationSeconds,
-            srcChainRequiredBlockConfirmations:
-                srcChainRequiredBlockConfirmations,
-            fees: fees,
-            lastStatechainUpdateAt: lastStatechainUpdateAt,
-            state: state);
+    super.depositChannel,
+    super.ccmParams,
+    super.boost,
+    super.estimatedDurationSeconds,
+    super.srcChainRequiredBlockConfirmations,
+    required super.fees,
+    super.lastStatechainUpdateAt,
+  });
 
   factory Sending.fromJson(Map<String, dynamic> json) {
     return Sending(

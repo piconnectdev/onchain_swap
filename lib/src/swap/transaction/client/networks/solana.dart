@@ -15,18 +15,20 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
       required SwapSolanaNetwork network}) async {
     final client = SwapSolanaClient(provider: provider, network: network);
     if (!(await client.initSwapClient())) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "The Genesis Hash is not compatible with the current network.");
     }
     return client;
   }
 
+  @override
   Future<String> getGenesis() async {
     if (_genesis != null) return _genesis!;
     _genesis = await provider.request(SolanaRequestGetGenesisHash());
     return _genesis!;
   }
 
+  @override
   Future<SolanaAccountInfo?> getAccountInfo(SolAddress address) async {
     final info =
         await provider.request(SolanaRequestGetAccountInfo(account: address));
@@ -39,6 +41,7 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
     return account?.lamports ?? BigInt.zero;
   }
 
+  @override
   Future<SimulateTranasctionResponse> simulate(
       {required SolanaTransaction transaction,
       SolAddress? account,
@@ -63,18 +66,21 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
     );
   }
 
+  @override
   Future<SolAddress> getBlockHash() async {
     final blockHash =
         await provider.request(const SolanaRequestGetLatestBlockhash());
     return blockHash.blockhash;
   }
 
+  @override
   Future<SignatureStatus?> getSignatureStatuses(String signature) async {
     final statuses = await provider
         .request(SolanaRequestGetSignatureStatuses(signatures: [signature]));
     return statuses.elementAt(0);
   }
 
+  @override
   Future<TransactionConfirmationStatus> trackTransaction(
       {required String transactionId,
       Duration timeout = const Duration(minutes: 1),
@@ -100,7 +106,7 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
       final receipt = await completer.future.timeout(timeout);
       return receipt;
     } on TimeoutException {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "transaction confirmation failed within the allotted timeout.");
     } finally {
       timer?.cancel();
@@ -108,6 +114,7 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
     }
   }
 
+  @override
   Future<String> sendTransaction(SolanaTransaction transaction,
       {int? maxRetries,
       bool skipPreflight = false,
@@ -129,6 +136,7 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
             : MinContextSlot(slot: minContextSlot)));
   }
 
+  @override
   Future<SolanaTokenPDAInfo> getTokenAccountAddress(
       {required SolAddress account,
       required SolAddress mint,
@@ -136,7 +144,7 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
     if (tokenProgramId == null) {
       final mintAccount = await getAccountInfo(mint);
       if (mintAccount == null) {
-        throw DartOnChainSwapPluginException(
+        throw const DartOnChainSwapPluginException(
             "Invalid token address. mint account not found.");
       }
       tokenProgramId = mintAccount.owner;
@@ -157,18 +165,19 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
         tokenProgramId: tokenProgramId);
   }
 
+  @override
   Future<BigInt> getTokenBalance(
       {required SolAddress account,
       required SolAddress? mint,
       SolAddress? tokenProgramId}) async {
     if (mint == null) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Invalid asset. missing asset mint address.");
     }
     if (tokenProgramId == null) {
       final mintAccount = await getAccountInfo(mint);
       if (mintAccount == null) {
-        throw DartOnChainSwapPluginException(
+        throw const DartOnChainSwapPluginException(
             "Invalid token address. mint account not found.");
       }
       tokenProgramId = mintAccount.owner;
@@ -208,8 +217,8 @@ class SwapSolanaClient implements BaseSwapSolanaClient {
 
   @override
   Future<BigInt> getBlockHeight() async {
-    final block = await provider
-        .request(SolanaRequestGetBlockHeight(commitment: Commitment.finalized));
+    final block = await provider.request(
+        const SolanaRequestGetBlockHeight(commitment: Commitment.finalized));
     return BigInt.from(block);
   }
 }

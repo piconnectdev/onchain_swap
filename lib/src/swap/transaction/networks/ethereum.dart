@@ -35,7 +35,7 @@ class SwapRouteEthereumTransactionBuilder extends SwapRouteTransactionBuilder<
   }) async {
     for (final operation in operations) {
       stepsCallBack(TransactionOperationStep.client);
-      final ethereumClient = await await checkRouteAndClient(client, operation);
+      final ethereumClient = await checkRouteAndClient(client, operation);
       stepsCallBack(TransactionOperationStep.generateTx);
       final transaction = await operation._buildTransactions(ethereumClient);
       if (transaction == null) continue;
@@ -43,7 +43,7 @@ class SwapRouteEthereumTransactionBuilder extends SwapRouteTransactionBuilder<
       final signerInfo = await signer(transaction.from);
       final signers = await signerInfo.signers();
       signers.firstWhere((e) => e == operation.source,
-          orElse: () => throw DartOnChainSwapPluginException(
+          orElse: () => throw const DartOnChainSwapPluginException(
               "None of the connected accounts match the source address of the transaction."));
       stepsCallBack(TransactionOperationStep.broadcast);
       final transactionId = await signerInfo.excuteTransaction(transaction);
@@ -82,6 +82,7 @@ class SwapRouteEthereumNativeTransactionOperation
     extends SwapRouteEthereumTransactionOperation
     implements SwapRouteTransactionTransferDetails<SwapEthereumNetwork> {
   final ETHAddress destination;
+  @override
   final SwapAmount amount;
   SwapRouteEthereumNativeTransactionOperation(
       {required this.amount,
@@ -91,6 +92,7 @@ class SwapRouteEthereumNativeTransactionOperation
       super.memo})
       : super(strategy: SwapRouteEthereumTransactionStrategy.native);
 
+  @override
   Future<Web3TransactionEthereum> _buildTransactions(
       BaseSwapEthereumClient client) async {
     final balance = await client.getBalance(source);
@@ -133,6 +135,7 @@ class SwapRouteEthereumSendTokenTransactionOperation
     implements SwapRouteTransactionTransferDetails<SwapEthereumNetwork> {
   final ETHAddress contract;
   final ETHAddress destination;
+  @override
   final SwapAmount amount;
   SwapRouteEthereumSendTokenTransactionOperation(
       {required this.amount,
@@ -141,6 +144,7 @@ class SwapRouteEthereumSendTokenTransactionOperation
       required super.network,
       required this.contract})
       : super(strategy: SwapRouteEthereumTransactionStrategy.token);
+  @override
   Future<Web3TransactionEthereum> _buildTransactions(
       BaseSwapEthereumClient client) async {
     final balance = await client.getBalance(source);
@@ -189,6 +193,7 @@ class SwapRouteEthereumAproveTransactionOperation
     implements SwapRouteTransactionContractDetails<SwapEthereumNetwork> {
   final ETHAddress contract;
   final ETHAddress spender;
+  @override
   final SwapAmount amount;
   SwapRouteEthereumAproveTransactionOperation(
       {required this.amount,
@@ -202,6 +207,7 @@ class SwapRouteEthereumAproveTransactionOperation
             prefix: "0x"),
         super(strategy: SwapRouteEthereumTransactionStrategy.aprove);
 
+  @override
   Future<Web3TransactionEthereum?> _buildTransactions(
       BaseSwapEthereumClient client) async {
     final balance = await client.getBalance(source);

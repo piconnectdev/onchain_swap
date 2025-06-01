@@ -14,16 +14,20 @@ abstract class CfRequestParam<RESULT, RESPONSE>
 abstract class CfBackendRequestParam<RESULT, RESPONSE>
     extends CfRequestParam<RESULT, RESPONSE> {
   const CfBackendRequestParam();
+  @override
   CfRequestType get cfRequestType => CfRequestType.backend;
   abstract final String method;
   List<String> get pathParameters => [];
   Map<String, dynamic>? get queryParameters => null;
 
+  @override
   RESULT onResonse(RESPONSE result) {
     return result as RESULT;
   }
 
+  @override
   RequestServiceType get requestType => RequestServiceType.get;
+  @override
   CfRequestDetails buildRequest(int v) {
     final pathParams = ChainFlipProviderUtils.extractParams(method);
     if (pathParams.length != pathParameters.length) {
@@ -56,10 +60,12 @@ abstract class CfRPCRequestParam<RESULT, RESPONSE>
     extends CfRequestParam<RESULT, RESPONSE> {
   const CfRPCRequestParam();
 
+  @override
   CfRequestType get cfRequestType => CfRequestType.rpc;
   abstract final String method;
   List<dynamic> get params => [];
   final Map<String, String>? headers = null;
+  @override
   RequestServiceType get requestType => RequestServiceType.post;
   @override
   CfRequestDetails buildRequest(int requestID) {
@@ -80,10 +86,12 @@ abstract class CfTRPCRequest<RESULT, RESPONSE>
   const CfTRPCRequest();
   abstract final String method;
 
+  @override
   CfRequestType get cfRequestType => CfRequestType.batchTrcp;
   Map<String, dynamic> get params => {};
   Map<String, dynamic>? get queryParameters => null;
   final Map<String, String>? headers = null;
+  @override
   RequestServiceType get requestType => RequestServiceType.post;
   @override
   CfRequestDetails buildRequest(int requestID) {

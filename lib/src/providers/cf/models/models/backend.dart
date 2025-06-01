@@ -71,11 +71,10 @@ abstract class ChainFlipFee {
 
 class ChainFlipSwapFee extends ChainFlipFee {
   ChainFlipSwapFee._(
-      {required ChainFlipFeeType type,
-      required String chain,
-      required String asset,
-      required String amount})
-      : super(type: type, chain: chain, asset: asset, amount: amount);
+      {required super.type,
+      required super.chain,
+      required super.asset,
+      required super.amount});
   factory ChainFlipSwapFee(
       {required ChainFlipFeeType type,
       required String chain,
@@ -101,12 +100,8 @@ class ChainFlipSwapFee extends ChainFlipFee {
 
 class ChainFlipPoolFee extends ChainFlipFee {
   ChainFlipPoolFee(
-      {required String chain, required String asset, required String amount})
-      : super(
-            type: ChainFlipFeeType.liquidity,
-            chain: chain,
-            asset: asset,
-            amount: amount);
+      {required super.chain, required super.asset, required super.amount})
+      : super(type: ChainFlipFeeType.liquidity);
 
   factory ChainFlipPoolFee.fromJson(Map<String, dynamic> json) {
     return ChainFlipPoolFee(
@@ -210,24 +205,17 @@ class SwapEgress extends EgressScheduled {
   final String swapExecutedBlockIndex;
 
   SwapEgress({
-    required String swapId,
-    required String depositAmount,
-    required int? depositReceivedAt,
-    required String? depositReceivedBlockIndex,
-    required String egressAmount,
-    required int egressScheduledAt,
-    required String egressScheduledBlockIndex,
+    required super.swapId,
+    required super.depositAmount,
+    required super.depositReceivedAt,
+    required super.depositReceivedBlockIndex,
+    required super.egressAmount,
+    required super.egressScheduledAt,
+    required super.egressScheduledBlockIndex,
     required this.swapExecutedAt,
     required this.swapExecutedBlockIndex,
     this.intermediateAmount,
   }) : super(
-          swapId: swapId,
-          depositAmount: depositAmount,
-          depositReceivedAt: depositReceivedAt,
-          depositReceivedBlockIndex: depositReceivedBlockIndex,
-          egressAmount: egressAmount,
-          egressScheduledAt: egressScheduledAt,
-          egressScheduledBlockIndex: egressScheduledBlockIndex,
           egressType: 'SWAP',
         );
 
@@ -267,21 +255,14 @@ class SwapEgress extends EgressScheduled {
 
 class RefundEgress extends EgressScheduled {
   RefundEgress({
-    required String swapId,
-    required String depositAmount,
-    required int? depositReceivedAt,
-    required String? depositReceivedBlockIndex,
-    required String egressAmount,
-    required int egressScheduledAt,
-    required String egressScheduledBlockIndex,
+    required super.swapId,
+    required super.depositAmount,
+    required super.depositReceivedAt,
+    required super.depositReceivedBlockIndex,
+    required super.egressAmount,
+    required super.egressScheduledAt,
+    required super.egressScheduledBlockIndex,
   }) : super(
-          swapId: swapId,
-          depositAmount: depositAmount,
-          depositReceivedAt: depositReceivedAt,
-          depositReceivedBlockIndex: depositReceivedBlockIndex,
-          egressAmount: egressAmount,
-          egressScheduledAt: egressScheduledAt,
-          egressScheduledBlockIndex: egressScheduledBlockIndex,
           egressType: 'REFUND',
         );
 
@@ -474,23 +455,14 @@ class EgressScheduledState extends EgressScheduled implements SwapState {
   SwapStateStatus get state => SwapStateStatus.egressScheduled;
 
   EgressScheduledState(
-      {required String egressType,
-      required String swapId,
-      required String depositAmount,
-      required int? depositReceivedAt,
-      required String? depositReceivedBlockIndex,
-      required String egressAmount,
-      required int egressScheduledAt,
-      required String egressScheduledBlockIndex})
-      : super(
-            egressType: egressType,
-            swapId: swapId,
-            depositAmount: depositAmount,
-            depositReceivedAt: depositReceivedAt,
-            depositReceivedBlockIndex: depositReceivedBlockIndex,
-            egressAmount: egressAmount,
-            egressScheduledAt: egressScheduledAt,
-            egressScheduledBlockIndex: egressScheduledBlockIndex);
+      {required super.egressType,
+      required super.swapId,
+      required super.depositAmount,
+      required super.depositReceivedAt,
+      required super.depositReceivedBlockIndex,
+      required super.egressAmount,
+      required super.egressScheduledAt,
+      required super.egressScheduledBlockIndex});
 
   // Converts JSON map to EgressScheduledState instance
   factory EgressScheduledState.fromJson(Map<String, dynamic> json) {
@@ -529,23 +501,14 @@ class BroadcastRequested extends EgressScheduled implements SwapState {
   BroadcastRequested(
       {required this.broadcastRequestedAt,
       required this.broadcastRequestedBlockIndex,
-      required String egressType,
-      required String swapId,
-      required String depositAmount,
-      required int? depositReceivedAt,
-      required String? depositReceivedBlockIndex,
-      required String egressAmount,
-      required int egressScheduledAt,
-      required String egressScheduledBlockIndex})
-      : super(
-            egressType: egressType,
-            swapId: swapId,
-            depositAmount: depositAmount,
-            depositReceivedAt: depositReceivedAt,
-            depositReceivedBlockIndex: depositReceivedBlockIndex,
-            egressAmount: egressAmount,
-            egressScheduledAt: egressScheduledAt,
-            egressScheduledBlockIndex: egressScheduledBlockIndex);
+      required super.egressType,
+      required super.swapId,
+      required super.depositAmount,
+      required super.depositReceivedAt,
+      required super.depositReceivedBlockIndex,
+      required super.egressAmount,
+      required super.egressScheduledAt,
+      required super.egressScheduledBlockIndex});
   factory BroadcastRequested.fromJson(Map<String, dynamic> json) {
     return BroadcastRequested(
       broadcastRequestedAt: json['broadcastRequestedAt'],
@@ -591,26 +554,18 @@ class Broadcasted extends EgressScheduled implements SwapState {
   SwapStateStatus get state => SwapStateStatus.broadcasted;
 
   Broadcasted({
-    required String egressType,
-    required String swapId,
-    required String depositAmount,
-    required int? depositReceivedAt,
-    required String? depositReceivedBlockIndex,
-    required String egressAmount,
-    required int egressScheduledAt,
-    required String egressScheduledBlockIndex,
+    required super.egressType,
+    required super.swapId,
+    required super.depositAmount,
+    required super.depositReceivedAt,
+    required super.depositReceivedBlockIndex,
+    required super.egressAmount,
+    required super.egressScheduledAt,
+    required super.egressScheduledBlockIndex,
     required this.broadcastRequestedAt,
     required this.broadcastRequestedBlockIndex,
     required this.broadcastTransactionRef,
-  }) : super(
-            egressType: egressType,
-            swapId: swapId,
-            depositAmount: depositAmount,
-            depositReceivedAt: depositReceivedAt,
-            depositReceivedBlockIndex: depositReceivedBlockIndex,
-            egressAmount: egressAmount,
-            egressScheduledAt: egressScheduledAt,
-            egressScheduledBlockIndex: egressScheduledBlockIndex);
+  });
   factory Broadcasted.fromJson(Map<String, dynamic> json) {
     return Broadcasted(
       egressType: json['egressType'],
@@ -657,28 +612,20 @@ class Complete extends EgressScheduled implements SwapState {
   SwapStateStatus get state => SwapStateStatus.complete;
 
   const Complete({
-    required String egressType,
-    required String swapId,
-    required String depositAmount,
-    required int? depositReceivedAt,
-    required String? depositReceivedBlockIndex,
-    required String egressAmount,
-    required int egressScheduledAt,
-    required String egressScheduledBlockIndex,
+    required super.egressType,
+    required super.swapId,
+    required super.depositAmount,
+    required super.depositReceivedAt,
+    required super.depositReceivedBlockIndex,
+    required super.egressAmount,
+    required super.egressScheduledAt,
+    required super.egressScheduledBlockIndex,
     required this.broadcastRequestedAt,
     required this.broadcastRequestedBlockIndex,
     required this.broadcastTransactionRef,
     required this.broadcastSucceededAt,
     required this.broadcastSucceededBlockIndex,
-  }) : super(
-            egressType: egressType,
-            swapId: swapId,
-            depositAmount: depositAmount,
-            depositReceivedAt: depositReceivedAt,
-            depositReceivedBlockIndex: depositReceivedBlockIndex,
-            egressAmount: egressAmount,
-            egressScheduledAt: egressScheduledAt,
-            egressScheduledBlockIndex: egressScheduledBlockIndex);
+  });
 
   factory Complete.fromJson(Map<String, dynamic> json) {
     return Complete(
@@ -730,27 +677,19 @@ class BroadcastAborted extends EgressScheduled implements SwapState {
   SwapStateStatus get state => SwapStateStatus.broadcastAborted;
 
   BroadcastAborted({
-    required String egressType,
-    required String swapId,
-    required String depositAmount,
-    required int? depositReceivedAt,
-    required String? depositReceivedBlockIndex,
-    required String egressAmount,
-    required int egressScheduledAt,
-    required String egressScheduledBlockIndex,
+    required super.egressType,
+    required super.swapId,
+    required super.depositAmount,
+    required super.depositReceivedAt,
+    required super.depositReceivedBlockIndex,
+    required super.egressAmount,
+    required super.egressScheduledAt,
+    required super.egressScheduledBlockIndex,
     required this.broadcastRequestedAt,
     required this.broadcastRequestedBlockIndex,
     required this.broadcastAbortedAt,
     required this.broadcastAbortedBlockIndex,
-  }) : super(
-            egressType: egressType,
-            swapId: swapId,
-            depositAmount: depositAmount,
-            depositReceivedAt: depositReceivedAt,
-            depositReceivedBlockIndex: depositReceivedBlockIndex,
-            egressAmount: egressAmount,
-            egressScheduledAt: egressScheduledAt,
-            egressScheduledBlockIndex: egressScheduledBlockIndex);
+  });
 
   // Converts JSON map to BroadcastAborted instance
   factory BroadcastAborted.fromJson(Map<String, dynamic> json) {
@@ -1092,36 +1031,21 @@ class DepositAddressFields extends SwapStatusResponseCommonFields {
     this.boostSkippedAt,
     this.boostSkippedBlockIndex,
     required this.fillOrKillParams,
-    required String destAddress,
-    String? ccmDepositReceivedBlockIndex,
-    CcmParams? ccmParams,
-    required List<ChainFlipFee> feesPaid,
-    num? estimatedDefaultDurationSeconds,
-    int? srcChainRequiredBlockConfirmations,
-    String? depositTransactionRef,
-    int? swapScheduledAt,
-    String? swapScheduledBlockIndex,
-    int? lastStatechainUpdateAt,
-    String? depositTransactionHash,
-    String? asset,
-    String? chain,
-    CcmParams? ccmMetadata,
-  }) : super(
-            destAddress: destAddress,
-            ccmDepositReceivedBlockIndex: ccmDepositReceivedBlockIndex,
-            ccmParams: ccmParams,
-            feesPaid: feesPaid,
-            estimatedDefaultDurationSeconds: estimatedDefaultDurationSeconds,
-            srcChainRequiredBlockConfirmations:
-                srcChainRequiredBlockConfirmations,
-            depositTransactionRef: depositTransactionRef,
-            swapScheduledAt: swapScheduledAt,
-            swapScheduledBlockIndex: swapScheduledBlockIndex,
-            lastStatechainUpdateAt: lastStatechainUpdateAt,
-            depositTransactionHash: depositTransactionHash,
-            ccmMetadata: ccmMetadata,
-            chain: chain,
-            asset: asset);
+    required super.destAddress,
+    super.ccmDepositReceivedBlockIndex,
+    super.ccmParams,
+    required super.feesPaid,
+    super.estimatedDefaultDurationSeconds,
+    super.srcChainRequiredBlockConfirmations,
+    super.depositTransactionRef,
+    super.swapScheduledAt,
+    super.swapScheduledBlockIndex,
+    super.lastStatechainUpdateAt,
+    super.depositTransactionHash,
+    super.asset,
+    super.chain,
+    super.ccmMetadata,
+  });
 
   // Converts JSON map to DepositAddressFields instance
   factory DepositAddressFields.fromJson(Map<String, dynamic> json) {
@@ -1248,71 +1172,41 @@ class FailedVaultSwapStatusResponse extends DepositAddressFields {
 
   const FailedVaultSwapStatusResponse({
     required this.depositAmount,
-    required String destAddress,
+    required super.destAddress,
     required this.error,
     required this.failedAt,
     required this.failedBlockIndex,
     required this.failure,
     required this.srcAsset,
     required this.srcChain,
-    required String? depositAddress,
-    required int? depositChannelCreatedAt,
-    required int? depositChannelBrokerCommissionBps,
-    String? expectedDepositAmount,
-    required String depositChannelExpiryBlock,
-    required int estimatedDepositChannelExpiryTime,
-    required bool isDepositChannelExpired,
-    required bool depositChannelOpenedThroughBackend,
+    required super.depositAddress,
+    required super.depositChannelCreatedAt,
+    required super.depositChannelBrokerCommissionBps,
+    super.expectedDepositAmount,
+    required super.depositChannelExpiryBlock,
+    required super.estimatedDepositChannelExpiryTime,
+    required super.isDepositChannelExpired,
+    required super.depositChannelOpenedThroughBackend,
     required String asset,
     required String chain,
-    List<DepositChannelAffiliateBroker>? depositChannelAffiliateBrokers,
-    required int depositChannelMaxBoostFeeBps,
-    int? effectiveBoostFeeBps,
-    int? boostSkippedAt,
-    String? boostSkippedBlockIndex,
-    required FillOrKillParams fillOrKillParams,
-    String? ccmDepositReceivedBlockIndex,
-    CcmParams? ccmParams,
-    required List<ChainFlipSwapFee> feesPaid,
-    num? estimatedDefaultDurationSeconds,
-    int? srcChainRequiredBlockConfirmations,
-    String? depositTransactionRef,
-    int? swapScheduledAt,
-    String? swapScheduledBlockIndex,
-    int? lastStatechainUpdateAt,
-    String? depositTransactionHash,
-    CcmParams? ccmMetadata,
-  }) : super(
-            depositAddress: depositAddress,
-            depositChannelCreatedAt: depositChannelCreatedAt,
-            depositChannelExpiryBlock: depositChannelExpiryBlock,
-            depositChannelMaxBoostFeeBps: depositChannelMaxBoostFeeBps,
-            depositChannelOpenedThroughBackend:
-                depositChannelOpenedThroughBackend,
-            estimatedDepositChannelExpiryTime:
-                estimatedDepositChannelExpiryTime,
-            fillOrKillParams: fillOrKillParams,
-            isDepositChannelExpired: isDepositChannelExpired,
-            boostSkippedAt: boostSkippedAt,
-            boostSkippedBlockIndex: boostSkippedBlockIndex,
-            depositChannelAffiliateBrokers: depositChannelAffiliateBrokers,
-            effectiveBoostFeeBps: effectiveBoostFeeBps,
-            expectedDepositAmount: expectedDepositAmount,
-            destAddress: destAddress,
-            ccmDepositReceivedBlockIndex: ccmDepositReceivedBlockIndex,
-            ccmParams: ccmParams,
-            feesPaid: feesPaid,
-            estimatedDefaultDurationSeconds: estimatedDefaultDurationSeconds,
-            srcChainRequiredBlockConfirmations:
-                srcChainRequiredBlockConfirmations,
-            depositTransactionRef: depositTransactionRef,
-            swapScheduledAt: swapScheduledAt,
-            swapScheduledBlockIndex: swapScheduledBlockIndex,
-            lastStatechainUpdateAt: lastStatechainUpdateAt,
-            depositTransactionHash: depositTransactionHash,
-            ccmMetadata: ccmMetadata,
-            depositChannelBrokerCommissionBps:
-                depositChannelBrokerCommissionBps);
+    super.depositChannelAffiliateBrokers,
+    required super.depositChannelMaxBoostFeeBps,
+    super.effectiveBoostFeeBps,
+    super.boostSkippedAt,
+    super.boostSkippedBlockIndex,
+    required FillOrKillParams super.fillOrKillParams,
+    super.ccmDepositReceivedBlockIndex,
+    super.ccmParams,
+    required List<ChainFlipSwapFee> super.feesPaid,
+    super.estimatedDefaultDurationSeconds,
+    super.srcChainRequiredBlockConfirmations,
+    super.depositTransactionRef,
+    super.swapScheduledAt,
+    super.swapScheduledBlockIndex,
+    super.lastStatechainUpdateAt,
+    super.depositTransactionHash,
+    super.ccmMetadata,
+  });
 
   factory FailedVaultSwapStatusResponse.fromJson(Map<String, dynamic> json) {
     return FailedVaultSwapStatusResponse(
@@ -1555,10 +1449,11 @@ class QuoteBoostedDetails extends QuoteDetails {
       required super.srcAsset,
       required super.depositAmount,
       required super.isVaultSwap});
-  QuoteBoostedDetails.fromJson(Map<String, dynamic> json)
+  QuoteBoostedDetails.fromJson(super.json)
       : maxBoostFeeBps = json.as("maxBoostFeeBps"),
         estimatedBoostFeeBps = json.as("estimatedBoostFeeBps"),
-        super.fromJson(json);
+        super.fromJson();
+  @override
   Map<String, dynamic> toJson() {
     return {
       ...super.toJson(),
@@ -1616,10 +1511,11 @@ class QuoteQueryResponse extends QuoteDetails {
       this.boostQuote,
       required super.depositAmount,
       required super.isVaultSwap});
-  QuoteQueryResponse.fromJson(Map<String, dynamic> json)
+  QuoteQueryResponse.fromJson(super.json)
       : boostQuote = json.maybeAs<QuoteBoostedDetails, Map<String, dynamic>>(
             key: "boostQuote", onValue: QuoteBoostedDetails.fromJson),
-        super.fromJson(json);
+        super.fromJson();
+  @override
   Map<String, dynamic> toJson() {
     return {
       ...super.toJson(),

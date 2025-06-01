@@ -35,7 +35,7 @@ class SwapServiceApi {
       try {
         final assets = await i.value.loadAssets();
         allAssets.addAll(assets);
-        this._localAssets[i.key] = assets.toImutableSet;
+        _localAssets[i.key] = assets.toImutableSet;
       } catch (_) {
         if (skipServiceWhenFailed) continue;
         rethrow;

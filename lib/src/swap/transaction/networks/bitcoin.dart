@@ -86,12 +86,13 @@ class SwapRouteBitcoinNativeTransactionOperation
       super.memo})
       : super(strategy: SwapRouteBitcoinTransactionStrategy.native);
 
+  @override
   Future<Web3TransactionBitcoin> _buildTransactions(
       BaseSwapBitcoinClient client, List<BitcoinSpenderAddress> sources) async {
     sources = sources.clone();
     final sourceAddress = sources.firstWhere(
         (e) => e.address.toAddress() == source.toAddress(),
-        orElse: () => throw DartOnChainSwapPluginException(
+        orElse: () => throw const DartOnChainSwapPluginException(
             "None of the connected accounts match the source address of the transaction."));
     sources.sort((a, b) {
       if (a.address.toAddress() == source.address) return -1;
@@ -105,7 +106,7 @@ class SwapRouteBitcoinNativeTransactionOperation
     }
     if (!utxos
         .any((e) => e.scriptPubKey == source.baseAddress.toScriptPubKey())) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Source account not found. It must contribute at least one UTXO to the transaction.");
     }
     final feeRate = await client.estimateFeePerByte(network);
@@ -160,5 +161,6 @@ class SwapRouteBitcoinNativeTransactionOperation
   @override
   String get sourceAddress => source.address;
 
+  @override
   final String? tokenAddress = null;
 }

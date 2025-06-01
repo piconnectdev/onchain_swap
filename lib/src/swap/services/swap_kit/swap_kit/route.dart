@@ -33,6 +33,7 @@ class SwapKitSwapRoute extends SwapRoute<SwapKitQuoteSwapParams,
     SwapRouteGeneralTransactionBuilderParam> {
   final SwapKitRoute route;
   final SwapRouteEthereumCallContractTransactionOperation transaction;
+  @override
   bool get supportTolerance => false;
   SwapKitSwapRoute(
       {required super.expireTime,
@@ -63,7 +64,7 @@ class SwapKitSwapRoute extends SwapRoute<SwapKitQuoteSwapParams,
             (source != destination &&
                 !transaction.data.contains(
                     destination.address.substring(2).toLowerCase()))) {
-          throw DartOnChainSwapPluginException(
+          throw const DartOnChainSwapPluginException(
               "The provided address doesn't match the address in the swap quote.");
         }
         if (quote.sourceAsset.isNative) {

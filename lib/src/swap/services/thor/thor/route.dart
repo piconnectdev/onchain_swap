@@ -38,6 +38,7 @@ class ThorSwapRoute extends SwapRoute<ThorQuoteSwapParams,
       required super.tolerance,
       required super.worstCaseAmount,
       required this.interval});
+  @override
   ThorSwapRoute updateTolerance(double tolerance) {
     return ThorSwapRoute(
         expireTime: expireTime,
@@ -84,7 +85,7 @@ class ThorSwapRoute extends SwapRoute<ThorQuoteSwapParams,
             sourceNetwork, quote.sourceAsset.identifier);
         final router = route.router;
         if (router == null) {
-          throw DartOnChainSwapPluginException("Invalid route address.");
+          throw const DartOnChainSwapPluginException("Invalid route address.");
         }
         final routerAddress = SwapUtils.toNetworkAddress(sourceNetwork, router);
         final ETHAddress inboundAddress =

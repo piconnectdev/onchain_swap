@@ -361,7 +361,7 @@ class SwapAmount with Equatable {
   List get variabels => [amount, decimals];
   @override
   String toString() {
-    return "$amountString";
+    return amountString;
   }
 }
 
@@ -371,11 +371,11 @@ class SwapEthereumNetwork extends SwapNetwork {
   const SwapEthereumNetwork({
     required super.name,
     required super.identifier,
-    ChainType chainType = ChainType.mainnet,
+    super.chainType = ChainType.mainnet,
     required super.logoUrl,
     required super.explorerTxUrl,
     required super.explorerAddressUrl,
-  }) : super(type: SwapChainType.ethereum, chainType: chainType);
+  }) : super(type: SwapChainType.ethereum);
 
   @override
   List get variabels => [identifier, type];
@@ -389,11 +389,11 @@ class SwapBitcoinNetwork extends SwapNetwork {
     required super.identifier,
     required this.chain,
     required this.genesis,
-    ChainType chainType = ChainType.mainnet,
+    super.chainType = ChainType.mainnet,
     required super.logoUrl,
     required super.explorerTxUrl,
     required super.explorerAddressUrl,
-  }) : super(type: SwapChainType.bitcoin, chainType: chainType);
+  }) : super(type: SwapChainType.bitcoin);
 
   @override
   Map<String, dynamic> toJson() {
@@ -414,9 +414,9 @@ class SwapSolanaNetwork extends SwapNetwork {
     required this.genesis,
     required super.explorerTxUrl,
     required super.explorerAddressUrl,
-    ChainType chainType = ChainType.mainnet,
+    super.chainType = ChainType.mainnet,
     required super.logoUrl,
-  }) : super(type: SwapChainType.solana, chainType: chainType);
+  }) : super(type: SwapChainType.solana);
   // @override
   // Map<String, dynamic> toJson() {
   //   return {...super.toJson(), "chain": chain.name};
@@ -434,15 +434,16 @@ class SwapCosmosNetwork extends SwapNetwork {
       required this.bech32,
       required super.explorerTxUrl,
       required super.explorerAddressUrl,
-      ChainType chainType = ChainType.mainnet,
+      super.chainType = ChainType.mainnet,
       required super.logoUrl})
-      : super(type: SwapChainType.cosmos, chainType: chainType);
+      : super(type: SwapChainType.cosmos);
 
   @override
   Map<String, dynamic> toJson() {
     return {...super.toJson(), "bech32": bech32};
   }
 
+  @override
   List get variabels => [identifier, chainType, type];
 }
 
@@ -456,9 +457,9 @@ class SwapSubstrateNetwork extends SwapNetwork {
     required this.genesis,
     required super.explorerTxUrl,
     required super.explorerAddressUrl,
-    ChainType chainType = ChainType.mainnet,
+    super.chainType = ChainType.mainnet,
     required super.logoUrl,
-  }) : super(type: SwapChainType.polkadot, chainType: chainType);
+  }) : super(type: SwapChainType.polkadot);
 
   @override
   List get variabels => [type, chainType, ss58Format];

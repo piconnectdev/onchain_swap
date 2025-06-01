@@ -33,8 +33,9 @@ class CfSwapRoute extends SwapRoute<CfQuoteSwapParams,
       required super.tolerance,
       required super.provider,
       required super.fees,
-      required SwapAmount super.worstCaseAmount});
+      required super.worstCaseAmount});
 
+  @override
   CfSwapRoute updateTolerance(double tolerance) {
     return CfSwapRoute(
         expireTime: expireTime,

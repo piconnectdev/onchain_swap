@@ -74,11 +74,12 @@ class SwapRouteCosmosNativeTransactionOperation
       super.memo})
       : super(strategy: SwapRouteCosmosTransactionStrategy.native);
 
+  @override
   Future<Web3TransactionCosmos> _buildTransactions(
       {required BaseSwapCosmosClient client,
       required List<CosmosSpenderAddress> signers}) async {
     final source = signers.firstWhere((e) => e.address == this.source,
-        orElse: () => throw DartOnChainSwapPluginException(
+        orElse: () => throw const DartOnChainSwapPluginException(
             "None of the connected accounts match the source address of the transaction."));
     final denom = client.chainInfo.native.denom;
     final feeToken = client.chainInfo.feeTokens[0];
@@ -143,5 +144,6 @@ class SwapRouteCosmosNativeTransactionOperation
   @override
   String get sourceAddress => source.address;
 
+  @override
   final String? tokenAddress = null;
 }

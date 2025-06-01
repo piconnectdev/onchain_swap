@@ -8,6 +8,7 @@ import 'package:onchain_swap/src/swap/transaction/types/types.dart';
 import 'package:onchain_swap/src/swap/types/types.dart';
 
 class SwapEthereumClient implements BaseSwapEthereumClient {
+  @override
   final EthereumProvider provider;
   final SwapEthereumNetwork network;
   BigInt? _chainId;
@@ -18,7 +19,7 @@ class SwapEthereumClient implements BaseSwapEthereumClient {
   }) async {
     final client = SwapEthereumClient(provider: provider, network: network);
     if (!(await client.initSwapClient())) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "The Chain ID is not compatible with the current network.");
     }
     return SwapEthereumClient(provider: provider, network: network);
@@ -30,12 +31,14 @@ class SwapEthereumClient implements BaseSwapEthereumClient {
         .request(EthereumRequestGetBalance(address: address.address));
   }
 
+  @override
   Future<BigInt> getChainId() async {
     if (_chainId != null) return _chainId!;
     _chainId = await provider.request(EthereumRequestGetChainId());
     return _chainId!;
   }
 
+  @override
   Future<BigInt> getAllowance(
       {required ETHAddress contract,
       required ETHAddress owner,
@@ -48,11 +51,13 @@ class SwapEthereumClient implements BaseSwapEthereumClient {
     return (result as List)[0];
   }
 
+  @override
   Future<BigInt> getTokenBalance(
       {required SolidityAddress address,
       required SolidityAddress? contract}) async {
     if (contract == null) {
-      throw DartOnChainSwapPluginException("missing token contract address.");
+      throw const DartOnChainSwapPluginException(
+          "missing token contract address.");
     }
     final function = EthereumAbiCons.erc20BalaceFragment;
     final result = await provider.request(EthereumRequestCall.fromMethod(
@@ -62,6 +67,7 @@ class SwapEthereumClient implements BaseSwapEthereumClient {
     return (result as List)[0];
   }
 
+  @override
   Future<TransactionReceipt> trackTransaction(
       {required String transactionId,
       Duration timeout = const Duration(minutes: 5),
@@ -84,7 +90,7 @@ class SwapEthereumClient implements BaseSwapEthereumClient {
       final receipt = await completer.future.timeout(timeout);
       return receipt;
     } on TimeoutException {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "transaction confirmation failed within the allotted timeout.");
     } finally {
       timer?.cancel();

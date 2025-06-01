@@ -35,7 +35,7 @@ class SwapRouteSolanaTransactionBuilder extends SwapRouteTransactionBuilder<
       final signerInfo = await signer(operation.source);
       final signers = await signerInfo.signers();
       signers.firstWhere((e) => e == operation.source,
-          orElse: () => throw DartOnChainSwapPluginException(
+          orElse: () => throw const DartOnChainSwapPluginException(
               "None of the connected accounts match the source address of the transaction."));
       final tx = await signerInfo.signTransaction(transaction);
       stepsCallBack(TransactionOperationStep.broadcast);
@@ -66,6 +66,7 @@ class SwapRouteSolanaNativeTransactionOperation
     extends SwapRouteSolanaTransactionOperation
     implements SwapRouteTransactionTransferDetails<SwapSolanaNetwork> {
   final SolAddress destination;
+  @override
   final String? memo;
   SwapRouteSolanaNativeTransactionOperation({
     required super.amount,
@@ -75,14 +76,15 @@ class SwapRouteSolanaNativeTransactionOperation
   })  : memo = null,
         super(strategy: SwapRouteSolanaTransactionStrategy.native);
 
+  @override
   Future<Web3TransactionSolana> _buildTransactions(
       BaseSwapSolanaClient client) async {
     final account = await client.getAccountInfo(source);
     if (account == null) {
-      throw DartOnChainSwapPluginException("Source account not found.");
+      throw const DartOnChainSwapPluginException("Source account not found.");
     }
     if (account.owner != SystemProgramConst.programId) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Invalid source account owner: the source account must be owned by the system program.");
     }
     if (account.lamports < amount.amount) {
@@ -143,10 +145,10 @@ class SwapRouteSolanaSendTokenTransactionOperation
       BaseSwapSolanaClient client) async {
     final account = await client.getAccountInfo(source);
     if (account == null) {
-      throw DartOnChainSwapPluginException("Source account not found.");
+      throw const DartOnChainSwapPluginException("Source account not found.");
     }
     if (account.owner != SystemProgramConst.programId) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Invalid source account owner: the source account must be owned by the system program.");
     }
     final tokenBalance =

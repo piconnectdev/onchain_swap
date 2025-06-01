@@ -11,13 +11,13 @@ class SkipGoSwapService extends SwapService<SkipGoSwapAsset, SkipGoApiProvider,
   Map<String, SwapNetwork>? _supportedNetworks;
   List<SkipGoSwapAsset>? _assets;
   SkipGoSwapService(
-      {required SkipGoApiProvider provider,
+      {required super.provider,
       ChainRegistryProvider? chainRegistryProvider,
       List<SwapNetwork>? supportedNetworks})
       : _supportedNetworks = supportedNetworks == null
             ? null
             : {for (final i in supportedNetworks) i.identifier: i},
-        super(service: SwapServiceType.skipGo, provider: provider);
+        super(service: SwapServiceType.skipGo);
 
   Future<Map<String, SwapNetwork>> _loadNetworks() async {
     if (_supportedNetworks != null) return _supportedNetworks!;

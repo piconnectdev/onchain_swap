@@ -10,9 +10,8 @@ import 'package:onchain_swap/src/swap/utils/utils.dart';
 class CfSwapService extends SwapService<BaseSwapAsset, CfProvider, CfSwapRoute,
     CfQuoteSwapParams> {
   final ChainType chainType;
-  CfSwapService(
-      {required CfProvider provider, this.chainType = ChainType.mainnet})
-      : super(service: SwapServiceType.chainFlip, provider: provider);
+  CfSwapService({required super.provider, this.chainType = ChainType.mainnet})
+      : super(service: SwapServiceType.chainFlip);
 
   List<BaseSwapAsset> _loadAssets() {
     if (chainType.isMainnet) {
@@ -82,12 +81,12 @@ class CfSwapService extends SwapService<BaseSwapAsset, CfProvider, CfSwapRoute,
     String? minPrice,
   }) async {
     if (minPrice != null && tolerance != null) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Invalid input: Provide either 'tolerance' or 'minPrice', not both.");
     }
 
     if (minPrice == null && tolerance == null) {
-      throw DartOnChainSwapPluginException(
+      throw const DartOnChainSwapPluginException(
           "Missing input: Either 'tolerance' or 'minPrice' must be provided.");
     }
     minPrice ??= CfSwapUtils.calculateMinPrice(
