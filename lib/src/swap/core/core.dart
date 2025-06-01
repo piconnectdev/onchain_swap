@@ -1,5 +1,5 @@
 import 'package:blockchain_utils/service/models/params.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 abstract class SwapService<
     ASSET extends BaseSwapAsset,

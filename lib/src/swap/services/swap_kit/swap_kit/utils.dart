@@ -1,7 +1,7 @@
 import 'package:blockchain_utils/utils/utils.dart';
 import 'package:on_chain/on_chain.dart';
-import 'package:onchain_swap/src/onchain_swap_base.dart';
-import 'package:onchain_swap/src/swap/transaction/const/abis/one_inch_agg.dart';
+import 'package:on_chain_swap/src/onchain_swap_base.dart';
+import 'package:on_chain_swap/src/swap/transaction/const/abis/one_inch_agg.dart';
 
 class SwapKitSwapUtils {
   static SwapRouteEthereumCallContractTransactionOperation parseEthSwapData(

@@ -10,7 +10,7 @@ import 'package:onchain_swap_example/future/widgets/widgets/progress_bar/progres
 import 'package:onchain_swap_example/web3/core/wallet.dart';
 import 'package:onchain_swap_example/web3/wallet_tracker/core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:onchain_swap_example/api/utils/utils.dart';
 import 'package:onchain_swap_example/api/services/socket/core/socket_provider.dart';

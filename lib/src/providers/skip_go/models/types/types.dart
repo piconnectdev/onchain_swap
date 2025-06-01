@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/utils/extensions/json.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/utils/extensions/json.dart';
 
 abstract class SkipGoApiResponse {
   Map<String, dynamic> toJson();

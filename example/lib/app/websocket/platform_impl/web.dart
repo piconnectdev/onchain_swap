@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:onchain_bridge/web/web.dart';
+import 'package:on_chain_bridge/web/web.dart';
 import 'package:onchain_swap_example/app/error/exception/http.dart';
 import 'package:onchain_swap_example/app/websocket/websocket.dart';
 

@@ -1,8 +1,8 @@
 import 'package:blockchain_utils/exception/exceptions.dart';
 import 'package:blockchain_utils/service/service.dart';
 import 'package:blockchain_utils/utils/utils.dart';
-import 'package:onchain_swap/src/providers/swap_kit/core/core/core.dart';
-import 'package:onchain_swap/src/providers/swap_kit/service/service.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/core/core/core.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/service/service.dart';
 
 class SwapKitProvider implements BaseProvider<SwapKitRequestDetails> {
   final SwapKitServiceProvider rpc;

@@ -1,4 +1,4 @@
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 class SwapKitSwapServiceProvider extends SwapServiceProvider {
   const SwapKitSwapServiceProvider(

@@ -3,7 +3,7 @@ import 'package:blockchain_utils/utils/numbers/rational/big_rational.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:on_chain/on_chain.dart';
 import 'package:on_chain/solidity/address/core.dart';
-import 'package:onchain_swap/src/swap/swap.dart';
+import 'package:on_chain_swap/src/swap/swap.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';
 
 abstract class SwapNetworkClient<ASSET extends BaseSwapAsset, ADDRESS,

@@ -1,10 +1,10 @@
 import 'package:on_chain/ethereum/src/address/evm_address.dart';
-import 'package:onchain_swap/src/onchain_swap_base.dart'
+import 'package:on_chain_swap/src/onchain_swap_base.dart'
     show DartOnChainSwapPluginException;
-import 'package:onchain_swap/src/providers/swap_kit/models/types/types.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/models/types/types.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 
 class SwapKitQuoteSwapParams extends QuoteSwapParams<BaseSwapAsset> {
   SwapKitQuoteSwapParams(

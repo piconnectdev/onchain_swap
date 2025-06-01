@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/swap_kit/core/core.dart';
-import 'package:onchain_swap/src/providers/swap_kit/models/types.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/core/core.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/models/types.dart';
 
 /// The /providers endpoint allows users to retrieve a comprehensive list of all available swap
 /// providers integrated by SwapKit and their supported chains and metadata.

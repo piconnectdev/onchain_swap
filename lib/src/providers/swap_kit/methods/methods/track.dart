@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/swap_kit/core/core.dart';
-import 'package:onchain_swap/src/providers/swap_kit/models/types.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/core/core.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/models/types.dart';
 
 /// The /tracker endpoint provides real-time status information for a specific transaction.
 /// It is particularly useful for tracking the progress and details of swaps, transfers,

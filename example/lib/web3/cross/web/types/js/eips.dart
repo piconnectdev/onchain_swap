@@ -1,6 +1,6 @@
 import 'dart:js_interop';
 import 'package:onchain_swap_example/web3/cross/web/types/types.dart';
-import 'package:onchain_bridge/web/api/core/js.dart';
+import 'package:on_chain_bridge/web/api/core/js.dart';
 
 class _EIP1193Consts {
   static const Map<String, dynamic> knownWalletNmes = {

@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:blockchain_utils/utils/binary/utils.dart';
-import 'package:onchain_swap/src/swap/transaction/types/types.dart';
+import 'package:on_chain_swap/src/swap/transaction/types/types.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';
-import 'package:onchain_swap/src/swap/transaction/client/core/client.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/transaction/client/core/client.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 class SwapSubstrateClient implements BaseSwapSubstrateClient {
   final SubstrateProvider provider;

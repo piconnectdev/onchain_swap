@@ -1,6 +1,6 @@
-import 'package:onchain_swap/src/providers/skip_go/core/core/core.dart';
-import 'package:onchain_swap/src/providers/skip_go/core/core/methods.dart';
-import 'package:onchain_swap/src/providers/skip_go/models/types/types.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/core.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/methods.dart';
+import 'package:on_chain_swap/src/providers/skip_go/models/types/types.dart';
 
 /// This supports cross-chain actions among EVM chains, Cosmos chains, and between them.
 /// Returns the sequence of transfers and/or swaps to reach the given destination asset

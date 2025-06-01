@@ -1,6 +1,6 @@
-import 'package:onchain_swap/src/providers/cf/core/core.dart';
-import 'package:onchain_swap/src/providers/cf/core/swap.dart';
-import 'package:onchain_swap/src/providers/cf/models/models/v2.dart';
+import 'package:on_chain_swap/src/providers/cf/core/core.dart';
+import 'package:on_chain_swap/src/providers/cf/core/swap.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models/v2.dart';
 
 class CfBackendRequestSwapStatusV2
     extends CfBackendRequestParam<SwapStatusResponseV2, Map<String, dynamic>> {

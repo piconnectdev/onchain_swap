@@ -1,7 +1,7 @@
 import 'package:blockchain_utils/exception/exceptions.dart';
 import 'package:blockchain_utils/service/service.dart';
 import 'package:blockchain_utils/utils/utils.dart';
-import 'package:onchain_swap/src/providers/skip_go/provider.dart';
+import 'package:on_chain_swap/src/providers/skip_go/provider.dart';
 
 class SkipGoApiProvider implements BaseProvider<SkipGoApiRequestDetails> {
   final SkipGoApiServiceProvider rpc;

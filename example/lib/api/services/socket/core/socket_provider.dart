@@ -3,7 +3,7 @@ import 'package:blockchain_utils/exception/exceptions.dart';
 import 'package:onchain_swap_example/api/services/core/service.dart';
 import 'package:onchain_swap_example/app/error/exception/http.dart';
 import 'package:onchain_swap_example/app/error/exception/app.dart';
-import 'package:onchain_bridge/models/device/models/platform.dart';
+import 'package:on_chain_bridge/models/device/models/platform.dart';
 
 class SocketRequestCompleter {
   SocketRequestCompleter(this.params, this.id);

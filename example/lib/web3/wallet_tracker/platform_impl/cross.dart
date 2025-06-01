@@ -1,4 +1,4 @@
-import 'package:onchain_swap/onchain_swap.dart' show SwapNetwork;
+import 'package:on_chain_swap/onchain_swap.dart' show SwapNetwork;
 import 'package:onchain_swap_example/web3/wallet_tracker/core/core.dart';
 
 WalletTracker walletTracker({required SwapNetwork network}) =>

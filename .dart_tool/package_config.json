@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-80.0.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-82.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.5"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/analyzer-7.3.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/analyzer-7.4.5",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.5"
     },
     {
       "name": "args",
@@ -44,6 +44,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "checked_yaml",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/checked_yaml-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "cli_config",
       "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/cli_config-0.2.0",
       "packageUri": "lib/",
@@ -63,13 +69,13 @@
     },
     {
       "name": "cosmos_sdk",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/cosmos_sdk-2.6.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/cosmos_sdk-2.7.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "coverage",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/coverage-1.12.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/coverage-1.14.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -128,6 +134,12 @@
       "languageVersion": "3.7"
     },
     {
+      "name": "json_annotation",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/json_annotation-4.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/lints-4.0.0",
       "packageUri": "lib/",
@@ -147,9 +159,9 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/meta-1.16.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/meta-1.17.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.5"
     },
     {
       "name": "mime",
@@ -198,6 +210,12 @@
       "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/pub_semver-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "pubspec_parse",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/pubspec_parse-1.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
     },
     {
       "name": "shelf",
@@ -267,19 +285,19 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/test-1.25.15",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/test-1.26.2",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/test_api-0.7.4",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/test_api-0.7.6",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
     {
       "name": "test_core",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/test_core-0.6.8",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/test_core-0.6.11",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
@@ -291,9 +309,9 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/vm_service-15.0.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/vm_service-15.0.1",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.5"
     },
     {
       "name": "watcher",
@@ -309,13 +327,13 @@
     },
     {
       "name": "web_socket",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/web_socket-0.1.6",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/web_socket-1.0.1",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "web_socket_channel",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/web_socket_channel-3.0.2",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/web_socket_channel-3.0.3",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -332,15 +350,15 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "onchain_swap",
+      "name": "on_chain_swap",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.6"
     }
   ],
   "generator": "pub",
-  "generatorVersion": "3.8.0",
+  "generatorVersion": "3.8.1",
   "flutterRoot": "file:///Users/macbookpro/Documents/flutter",
-  "flutterVersion": "3.32.0",
+  "flutterVersion": "3.32.1",
   "pubCache": "file:///Users/macbookpro/.pub-cache"
 }

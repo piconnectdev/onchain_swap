@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:onchain_swap_example/app/error/exception.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:onchain_swap_example/app/http/impl/impl.dart';
 import 'package:onchain_swap_example/app/http/models/models.dart';
 import 'package:onchain_swap_example/app/live_listener/live.dart';

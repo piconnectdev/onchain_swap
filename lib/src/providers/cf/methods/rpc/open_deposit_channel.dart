@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/cf/core/core.dart';
-import 'package:onchain_swap/src/providers/cf/models/models.dart';
+import 'package:on_chain_swap/src/providers/cf/core/core.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models.dart';
 import 'package:on_chain/utils/utils/map_utils.dart';
 
 class CfTRPCRequestOpenSwapDepositChannel extends CfTRPCRequest<

@@ -1,6 +1,6 @@
 import 'package:blockchain_utils/utils/numbers/utils/bigint_utils.dart';
 import 'package:blockchain_utils/utils/numbers/utils/int_utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
 
 typedef ONQUICKMAPFAILED = DartOnChainSwapPluginException Function(
     bool notfound);

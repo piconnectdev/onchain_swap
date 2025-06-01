@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/swap_kit/core/core.dart';
-import 'package:onchain_swap/src/providers/swap_kit/models/types.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/core/core.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/models/types.dart';
 
 /// To initiate a swap through the CHAINFLIPor CHAINFLIP_STREAMINGproviders, a deposit channel must be opened first.
 class SwapKitRequestChainFlipOpenDepositChannel extends SwapKitPostRequest<

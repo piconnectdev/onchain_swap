@@ -1,8 +1,8 @@
 // ignore: avoid_web_libraries_in_flutter
 
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_bridge/platform_interface.dart';
-import 'package:onchain_bridge/web/web.dart';
+import 'package:on_chain_bridge/platform_interface.dart';
+import 'package:on_chain_bridge/web/web.dart';
 
 Future<String> writeTOFile(String data, String fileName,
     {bool validate = true}) async {

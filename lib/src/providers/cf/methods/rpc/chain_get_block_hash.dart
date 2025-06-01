@@ -1,4 +1,4 @@
-import 'package:onchain_swap/src/providers/cf/core/core.dart';
+import 'package:on_chain_swap/src/providers/cf/core/core.dart';
 
 class CfRPCRequestChainGetBlockHash extends CfRPCRequestParam<String, String> {
   final int? blockHeight;

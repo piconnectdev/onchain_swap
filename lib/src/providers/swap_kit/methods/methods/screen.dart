@@ -1,6 +1,6 @@
-import 'package:onchain_swap/src/providers/swap_kit/core/core.dart';
-import 'package:onchain_swap/src/providers/swap_kit/models/types.dart';
-import 'package:onchain_swap/src/utils/extensions/json.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/core/core.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/models/types.dart';
+import 'package:on_chain_swap/src/utils/extensions/json.dart';
 
 class SwapKitRequestScreen
     extends SwapKitPostRequest<bool, Map<String, dynamic>> {

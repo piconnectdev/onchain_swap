@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:onchain_swap/onchain_swap.dart' show SwapNetwork;
+import 'package:on_chain_swap/onchain_swap.dart' show SwapNetwork;
 import 'package:onchain_swap_example/web3/core/wallet.dart';
 
 import '../platform_impl/cross.dart'

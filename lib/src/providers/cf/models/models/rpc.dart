@@ -1,6 +1,6 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/utils/extensions/extensions.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/utils/extensions/extensions.dart';
 
 import 'package:on_chain/utils/utils/map_utils.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';

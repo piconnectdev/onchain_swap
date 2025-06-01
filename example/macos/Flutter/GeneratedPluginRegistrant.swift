@@ -5,7 +5,7 @@
 import FlutterMacOS
 import Foundation
 
-import onchain_bridge
+import on_chain_bridge
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   OnChainBridgePlugin.register(with: registry.registrar(forPlugin: "OnChainBridgePlugin"))

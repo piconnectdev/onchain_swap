@@ -1,8 +1,8 @@
 import 'package:on_chain/on_chain.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/constants/constants.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/constants/constants.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 enum SwapRouteSolanaTransactionStrategy { native, token }
 

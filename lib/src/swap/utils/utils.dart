@@ -1,8 +1,8 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/constants/constants.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/constants/constants.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:on_chain/on_chain.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';

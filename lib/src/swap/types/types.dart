@@ -1,11 +1,11 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/blockchain_utils.dart';
 import 'package:on_chain/on_chain.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/services/services.dart';
-import 'package:onchain_swap/src/swap/transaction/core/transaction.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
-import 'package:onchain_swap/src/utils/equatable.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/services/services.dart';
+import 'package:on_chain_swap/src/swap/transaction/core/transaction.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/utils/equatable.dart';
 
 enum SwapServiceType { skipGo, chainFlip, thor, maya, swapKit }
 

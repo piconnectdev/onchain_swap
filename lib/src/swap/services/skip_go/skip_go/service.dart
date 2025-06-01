@@ -1,8 +1,8 @@
-import 'package:onchain_swap/src/providers/skip_go/provider.dart';
-import 'package:onchain_swap/src/swap/constants/constants.dart';
-import 'package:onchain_swap/src/swap/core/core.dart';
-import 'package:onchain_swap/src/swap/services/skip_go/skip_go/chains.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/providers/skip_go/provider.dart';
+import 'package:on_chain_swap/src/swap/constants/constants.dart';
+import 'package:on_chain_swap/src/swap/core/core.dart';
+import 'package:on_chain_swap/src/swap/services/skip_go/skip_go/chains.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'route.dart';
 

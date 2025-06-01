@@ -1,6 +1,6 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:onchain_swap_example/api/services/types/app_client.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:onchain_swap_example/api/services/electrum/services/electrum_service.dart';
 import 'package:onchain_swap_example/api/services/providers/ethereum.dart';
@@ -12,7 +12,7 @@ import 'package:onchain_swap_example/api/services/providers/tendermint.dart';
 import 'package:onchain_swap_example/api/services/socket/core/socket_provider.dart';
 import 'package:onchain_swap_example/api/services/types/types.dart';
 import 'package:onchain_swap_example/app/error/exception/app.dart';
-import 'package:onchain_bridge/platform_interface.dart';
+import 'package:on_chain_bridge/platform_interface.dart';
 import 'package:on_chain/ethereum/src/rpc/provider/provider.dart';
 import 'package:on_chain/solana/solana.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';

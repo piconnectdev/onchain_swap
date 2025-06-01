@@ -3,7 +3,7 @@ import 'package:onchain_swap_example/app/error/exception.dart';
 import 'package:onchain_swap_example/app/http/http.dart';
 import 'package:onchain_swap_example/app/utils/method.dart';
 import 'package:http/http.dart';
-import 'package:onchain_bridge/models/device/models/platform.dart';
+import 'package:on_chain_bridge/models/device/models/platform.dart';
 
 mixin HttpImpl {
   Future<HTTPCallerResponse> makeCall(

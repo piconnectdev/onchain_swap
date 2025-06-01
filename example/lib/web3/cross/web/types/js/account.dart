@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:onchain_swap_example/web3/core/wallet.dart';
 
 class JSWeb3WalletAccount<ADDRESS, JSADDRESS>

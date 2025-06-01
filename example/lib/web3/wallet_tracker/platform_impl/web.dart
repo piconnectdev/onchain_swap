@@ -2,14 +2,14 @@ import 'dart:async';
 import 'dart:js_interop';
 
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:onchain_swap_example/app/synchronized/basic_lock.dart';
 import 'package:onchain_swap_example/future/pages/wallet_scanner/cross/web.dart';
 import 'package:onchain_swap_example/web3/core/wallet.dart';
 import 'package:onchain_swap_example/web3/cross/web/types/types.dart';
 import 'package:onchain_swap_example/web3/cross/web/wallets/wallets.dart';
 import 'package:onchain_swap_example/web3/wallet_tracker/core/core.dart';
-import 'package:onchain_bridge/web/web.dart';
+import 'package:on_chain_bridge/web/web.dart';
 
 WalletTracker walletTracker({required SwapNetwork network}) =>
     WebWalletTracker(network: network);

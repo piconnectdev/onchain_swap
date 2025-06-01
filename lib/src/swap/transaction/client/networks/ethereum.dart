@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:on_chain/solidity/address/core.dart';
-import 'package:onchain_swap/src/swap/transaction/const/const.dart';
+import 'package:on_chain_swap/src/swap/transaction/const/const.dart';
 import 'package:on_chain/ethereum/ethereum.dart';
-import 'package:onchain_swap/src/swap/transaction/client/core/client.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/transaction/types/types.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/transaction/client/core/client.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/transaction/types/types.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 class SwapEthereumClient implements BaseSwapEthereumClient {
   @override

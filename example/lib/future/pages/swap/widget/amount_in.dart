@@ -1,5 +1,5 @@
 import 'package:blockchain_utils/utils/numbers/rational/big_rational.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:onchain_swap_example/app/types/types.dart';
 import 'package:onchain_swap_example/future/state_managment/state_managment.dart';
 import 'package:onchain_swap_example/future/text_field/input_formaters.dart';

@@ -1,6 +1,6 @@
 import 'package:blockchain_utils/helper/helper.dart';
-import 'package:onchain_swap/src/swap/services/thor/thor.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/services/thor/thor.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 import 'constants.dart';
 
 class MayaSwapService extends ThorSwapService {

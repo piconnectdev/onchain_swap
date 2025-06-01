@@ -1,9 +1,9 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/bip/bip/conf/core/coin_conf.dart';
 import 'package:blockchain_utils/helper/extensions/extensions.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/services/swap_kit/swap_kit/types.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/services/swap_kit/swap_kit/types.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';
 
 class SwapConstants {

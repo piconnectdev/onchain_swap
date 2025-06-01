@@ -1,13 +1,13 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
 import 'package:on_chain/on_chain.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/providers/providers.dart';
-import 'package:onchain_swap/src/swap/core/core.dart';
-import 'package:onchain_swap/src/swap/services/swap_kit/swap_kit/types.dart'
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/providers/providers.dart';
+import 'package:on_chain_swap/src/swap/core/core.dart';
+import 'package:on_chain_swap/src/swap/services/swap_kit/swap_kit/types.dart'
     show SwapKitSwapServiceProvider;
-import 'package:onchain_swap/src/swap/services/swap_kit/swap_kit/utils.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/swap/services/swap_kit/swap_kit/utils.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 import 'route.dart';
 
 class SwapKitSwapService extends SwapService<BaseSwapAsset, SwapKitProvider,

@@ -1,11 +1,11 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/utils/numbers/utils/bigint_utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/providers/cf/models/models/backend.dart';
-import 'package:onchain_swap/src/providers/cf/models/models/rpc.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart' show SwapUtils;
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models/backend.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models/rpc.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart' show SwapUtils;
 import 'package:on_chain/on_chain.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';
 

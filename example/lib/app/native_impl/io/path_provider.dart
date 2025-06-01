@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:onchain_swap_example/app/native_impl/core/core.dart';
-import 'package:onchain_bridge/models/path/path.dart';
-import 'package:onchain_bridge/platform_interface.dart';
+import 'package:on_chain_bridge/models/path/path.dart';
+import 'package:on_chain_bridge/platform_interface.dart';
 
 mixin PathProvider {
   static AppPath? _path;

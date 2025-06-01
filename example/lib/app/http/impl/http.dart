@@ -3,7 +3,7 @@ import 'package:onchain_swap_example/app/http/models/auth.dart';
 import 'package:onchain_swap_example/app/http/models/manager.dart';
 import 'package:onchain_swap_example/app/http/models/models.dart';
 import 'package:http/http.dart' as http;
-import 'package:onchain_bridge/models/device/models/platform.dart';
+import 'package:on_chain_bridge/models/device/models/platform.dart';
 
 class HTTPCaller {
   static final HttpClientManager _clientManager = HttpClientManager();

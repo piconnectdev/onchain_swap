@@ -1,7 +1,7 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
 import 'package:onchain_swap_example/app/error/exception.dart';
 import 'package:onchain_swap_example/app/utils/string.dart';
-import 'package:onchain_bridge/models/device/models/platform.dart';
+import 'package:on_chain_bridge/models/device/models/platform.dart';
 import 'dart:async';
 
 import 'auth.dart';

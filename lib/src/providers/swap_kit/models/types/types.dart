@@ -1,6 +1,6 @@
 import 'package:blockchain_utils/helper/helper.dart';
-import 'package:onchain_swap/src/utils/equatable.dart';
-import 'package:onchain_swap/src/utils/extensions/json.dart';
+import 'package:on_chain_swap/src/utils/equatable.dart';
+import 'package:on_chain_swap/src/utils/extensions/json.dart';
 
 class SwapKitProviderInfo {
   final String name;

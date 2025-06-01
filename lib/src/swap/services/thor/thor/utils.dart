@@ -1,8 +1,8 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/src/swap/services/thor/thor/route.dart'
+import 'package:on_chain_swap/src/swap/services/thor/thor/route.dart'
     show ThorSwapRoute;
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 
 class ThorSwapUtils {

@@ -1,6 +1,6 @@
 import 'package:on_chain/ethereum/ethereum.dart';
 import 'package:on_chain/solana/solana.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';
 
 abstract class Web3Signer<ADDRESS> {

@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/skip_go/models/types/types.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/providers/skip_go/models/types/types.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 import 'chains.dart';
 

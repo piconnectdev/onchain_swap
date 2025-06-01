@@ -1,5 +1,5 @@
 import 'package:blockchain_utils/service/models/params.dart';
-import 'package:onchain_swap/src/providers/skip_go/core/core/core.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/core.dart';
 
 typedef SkipGoApiServiceResponse<T> = BaseServiceResponse<T>;
 

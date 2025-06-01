@@ -1,11 +1,11 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
-import 'package:onchain_swap/src/exception/exception.dart'
+import 'package:on_chain_swap/src/exception/exception.dart'
     show DartOnChainSwapPluginException;
-import 'package:onchain_swap/src/swap/services/thor/thor/constants.dart';
-import 'package:onchain_swap/src/swap/services/thor/thor/utils.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/swap/services/thor/thor/constants.dart';
+import 'package:on_chain_swap/src/swap/services/thor/thor/utils.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:on_chain/ethereum/src/address/evm_address.dart';
 

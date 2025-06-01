@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:on_chain/on_chain.dart';
-import 'package:onchain_swap/src/swap/transaction/client/core/client.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/transaction/types/types.dart';
+import 'package:on_chain_swap/src/swap/transaction/client/core/client.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/transaction/types/types.dart';
 
 class SwapSolanaClient implements BaseSwapSolanaClient {
   String? _genesis;

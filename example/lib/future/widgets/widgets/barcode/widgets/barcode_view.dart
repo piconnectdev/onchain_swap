@@ -6,7 +6,7 @@ import 'package:onchain_swap_example/future/widgets/widgets/constraints_box_view
 import 'package:onchain_swap_example/future/widgets/widgets/progress_bar/progress.dart';
 import 'package:onchain_swap_example/future/widgets/widgets/widget_constant.dart';
 import 'package:flutter/material.dart';
-import 'package:onchain_bridge/models/share/share.dart';
+import 'package:on_chain_bridge/models/share/share.dart';
 
 class BarcodeView extends StatefulWidget {
   const BarcodeView(

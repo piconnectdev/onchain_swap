@@ -1,10 +1,10 @@
 import 'package:blockchain_utils/helper/helper.dart';
 import 'package:blockchain_utils/utils/numbers/utils/bigint_utils.dart';
-import 'package:onchain_swap/src/swap/core/core.dart';
-import 'package:onchain_swap/src/swap/services/services.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/swap/core/core.dart';
+import 'package:on_chain_swap/src/swap/services/services.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 
 class SwapServiceApi {
   final Map<SwapServiceType, SwapService> _services;

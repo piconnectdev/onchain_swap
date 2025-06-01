@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  onchain_bridge
+  on_chain_bridge
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

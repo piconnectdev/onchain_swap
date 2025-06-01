@@ -1,4 +1,4 @@
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:onchain_swap_example/app/image/image.dart';
 import 'package:onchain_swap_example/future/image/memory_image.dart';
 import 'package:flutter/material.dart';

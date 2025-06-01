@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/swap_kit/core/core.dart';
-import 'package:onchain_swap/src/providers/swap_kit/models/types.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/core/core.dart';
+import 'package:on_chain_swap/src/providers/swap_kit/models/types.dart';
 
 /// The /tokens endpoint provides a list of tokens for a specified provider.
 /// This endpoint requires a query parameter to determine which provider's tokens you want to retrieve.

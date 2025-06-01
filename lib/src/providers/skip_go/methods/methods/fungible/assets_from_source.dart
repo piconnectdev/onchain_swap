@@ -1,7 +1,7 @@
-import 'package:onchain_swap/src/providers/skip_go/core/core/core.dart';
-import 'package:onchain_swap/src/providers/skip_go/core/core/methods.dart';
-import 'package:onchain_swap/src/providers/skip_go/models/types/types.dart';
-import 'package:onchain_swap/src/utils/extensions/json.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/core.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/methods.dart';
+import 'package:on_chain_swap/src/providers/skip_go/models/types/types.dart';
+import 'package:on_chain_swap/src/utils/extensions/json.dart';
 
 /// Get assets that can be reached from a source via transfers
 /// under different conditions (e.g. single vs multiple txs)

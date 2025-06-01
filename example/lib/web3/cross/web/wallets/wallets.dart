@@ -1,7 +1,7 @@
 import 'dart:js_interop';
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:onchain_swap_example/app/error/exception.dart';
 import 'package:onchain_swap_example/app/utils/method.dart';
@@ -14,7 +14,7 @@ import 'package:onchain_swap_example/web3/cross/web/types/js/substrate.dart';
 import 'package:onchain_swap_example/web3/cross/web/types/types.dart';
 import 'package:onchain_swap_example/web3/cross/web/utils/utils.dart';
 import 'package:onchain_swap_example/web3/utils/utils.dart';
-import 'package:onchain_bridge/web/api/core/js.dart';
+import 'package:on_chain_bridge/web/api/core/js.dart';
 import 'package:on_chain/on_chain.dart';
 import 'package:polkadot_dart/polkadot_dart.dart';
 

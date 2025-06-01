@@ -1,4 +1,4 @@
-import 'package:onchain_bridge/platform_interface.dart';
+import 'package:on_chain_bridge/platform_interface.dart';
 import 'cross_platform.dart'
     if (dart.library.js_interop) 'web.dart'
     if (dart.library.io) 'io.dart';

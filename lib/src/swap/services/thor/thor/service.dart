@@ -1,8 +1,8 @@
 import 'package:blockchain_utils/helper/helper.dart';
-import 'package:onchain_swap/src/swap/core/core.dart';
-import 'package:onchain_swap/src/swap/services/thor/thor/utils.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/swap/core/core.dart';
+import 'package:on_chain_swap/src/swap/services/thor/thor/utils.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'constants.dart';
 import 'route.dart';

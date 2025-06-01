@@ -1,10 +1,10 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/crypto/quick_crypto.dart';
 import 'package:blockchain_utils/utils/utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/transaction/client/core/client.dart';
-import 'package:onchain_swap/src/swap/transaction/types/types.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/transaction/client/core/client.dart';
+import 'package:on_chain_swap/src/swap/transaction/types/types.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 class _BitcoinClientConst {
   static final BigRational testnetFeeRate = BigRational.parseDecimal('1.1');

@@ -8,7 +8,7 @@ import 'package:onchain_swap_example/future/router/router.dart';
 import 'package:onchain_swap_example/future/widgets/widgets/scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:onchain_bridge/platform_interface.dart';
+import 'package:on_chain_bridge/platform_interface.dart';
 
 import 'future/state_managment/state_managment.dart';
 import 'future/theme/theme.dart';

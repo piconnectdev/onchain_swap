@@ -1,6 +1,6 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
 import 'package:onchain_swap_example/app/live_listener/live.dart';
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:onchain_swap_example/api/services/services.dart';
 import 'package:onchain_swap_example/api/services/socket/core/socket_provider.dart';

@@ -1,4 +1,4 @@
-name: onchain_swap
+name: on_chain_swap
 description: This package enables seamless interaction with the Chainflip network and supports Ethereum, Bitcoin, Solana and substrate, facilitating cross-chain swaps without dependencies.
 version: 0.1.0
 homepage: "https://github.com/mrtnetwork/onchain_swap"

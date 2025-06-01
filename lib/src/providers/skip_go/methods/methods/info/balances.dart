@@ -1,6 +1,6 @@
-import 'package:onchain_swap/src/providers/skip_go/core/core/core.dart';
-import 'package:onchain_swap/src/providers/skip_go/core/core/methods.dart';
-import 'package:onchain_swap/src/providers/skip_go/models/types/types.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/core.dart';
+import 'package:on_chain_swap/src/providers/skip_go/core/core/methods.dart';
+import 'package:on_chain_swap/src/providers/skip_go/models/types/types.dart';
 
 /// Get the balances of a given set of assets on a given chain and wallet address.
 /// Compatible with all Skip Go-supported assets, excluding CW20 assets, across SVM, EVM, and Cosmos chains.

@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:onchain_bridge/models/device/models/platform.dart';
+import 'package:on_chain_bridge/models/device/models/platform.dart';
 
 class AppScrollBehavior extends MaterialScrollBehavior {
   AppScrollBehavior({required this.platform});

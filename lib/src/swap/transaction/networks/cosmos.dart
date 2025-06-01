@@ -1,10 +1,10 @@
 import 'package:blockchain_utils/signer/const/constants.dart';
 import 'package:blockchain_utils/utils/numbers/rational/big_rational.dart';
-import 'package:onchain_swap/src/swap/constants/constants.dart';
-import 'package:onchain_swap/src/swap/transaction/transaction.dart';
+import 'package:on_chain_swap/src/swap/constants/constants.dart';
+import 'package:on_chain_swap/src/swap/transaction/transaction.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
 
 enum SwapRouteCosmosTransactionStrategy { native }
 

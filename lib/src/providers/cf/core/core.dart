@@ -1,7 +1,7 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/providers/cf/constants/constants.dart';
-import 'package:onchain_swap/src/providers/cf/utils/utils.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/providers/cf/constants/constants.dart';
+import 'package:on_chain_swap/src/providers/cf/utils/utils.dart';
 
 enum CfRequestType { backend, rpc, batchTrcp }
 

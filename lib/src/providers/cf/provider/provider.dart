@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/src/providers/cf/core/core.dart';
-import 'package:onchain_swap/src/providers/cf/service/service.dart';
+import 'package:on_chain_swap/src/providers/cf/core/core.dart';
+import 'package:on_chain_swap/src/providers/cf/service/service.dart';
 
 class CfProvider implements BaseProvider<CfRequestDetails> {
   final CfServiceProvider rpc;

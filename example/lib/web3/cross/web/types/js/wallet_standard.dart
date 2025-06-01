@@ -1,8 +1,8 @@
 import 'dart:js_interop';
 
 import 'package:onchain_swap_example/web3/cross/web/types/js/global.dart';
-import 'package:onchain_bridge/web/api/core/js.dart';
-import 'package:onchain_bridge/web/api/window/window.dart';
+import 'package:on_chain_bridge/web/api/core/js.dart';
+import 'package:on_chain_bridge/web/api/window/window.dart';
 
 import 'bitcoin.dart';
 import 'cosmos.dart';

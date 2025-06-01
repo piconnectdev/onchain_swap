@@ -1,4 +1,4 @@
-import 'package:onchain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/onchain_swap.dart';
 import 'package:onchain_swap_example/api/utils/utils.dart';
 import 'package:onchain_swap_example/api/services/socket/core/socket_provider.dart';
 import 'package:onchain_swap_example/api/services/types/types.dart';
@@ -11,7 +11,7 @@ import 'package:onchain_swap_example/app/utils/string.dart';
 import 'package:onchain_swap_example/future/state_managment/state_managment.dart';
 import 'package:onchain_swap_example/future/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:onchain_bridge/platform_interface.dart';
+import 'package:on_chain_bridge/platform_interface.dart';
 
 typedef ONADDNEWSERVICE = void Function(ServiceInfo service);
 

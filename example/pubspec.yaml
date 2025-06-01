@@ -48,11 +48,11 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.17
   http: ^1.3.0
-  onchain_bridge:
+  on_chain_bridge:
     git:
       url: https://github.com/mrtnetwork/onchain_bridge.git
       ref: main # optional: branch name, tag, or commit hash
-  onchain_swap:
+  on_chain_swap:
     path: ../
   flutter_localizations:
     sdk: flutter

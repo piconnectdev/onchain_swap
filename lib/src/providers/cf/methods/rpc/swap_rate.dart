@@ -1,5 +1,5 @@
-import 'package:onchain_swap/src/providers/cf/core/core.dart';
-import 'package:onchain_swap/src/providers/cf/models/models/rpc.dart';
+import 'package:on_chain_swap/src/providers/cf/core/core.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models/rpc.dart';
 
 class CfRPCRequestSwapRate
     extends CfRPCRequestParam<SwapRateResponse, Map<String, dynamic>> {

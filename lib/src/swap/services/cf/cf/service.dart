@@ -1,11 +1,11 @@
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/providers/cf/provider.dart';
-import 'package:onchain_swap/src/swap/constants/constants.dart';
-import 'package:onchain_swap/src/swap/core/core.dart';
-import 'package:onchain_swap/src/swap/services/services.dart';
-import 'package:onchain_swap/src/swap/types/types.dart';
-import 'package:onchain_swap/src/swap/utils/utils.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/providers/cf/provider.dart';
+import 'package:on_chain_swap/src/swap/constants/constants.dart';
+import 'package:on_chain_swap/src/swap/core/core.dart';
+import 'package:on_chain_swap/src/swap/services/services.dart';
+import 'package:on_chain_swap/src/swap/types/types.dart';
+import 'package:on_chain_swap/src/swap/utils/utils.dart';
 
 class CfSwapService extends SwapService<BaseSwapAsset, CfProvider, CfSwapRoute,
     CfQuoteSwapParams> {

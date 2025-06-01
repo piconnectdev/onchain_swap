@@ -1,6 +1,6 @@
 import 'package:blockchain_utils/service/service.dart';
 import 'package:blockchain_utils/utils/string/string.dart';
-import 'package:onchain_swap/src/providers/skip_go/constatns/constants.dart';
+import 'package:on_chain_swap/src/providers/skip_go/constatns/constants.dart';
 
 abstract class SwapKitRequest<RESULT, RESPONSE>
     extends BaseServiceRequest<RESULT, RESPONSE, SwapKitRequestDetails> {

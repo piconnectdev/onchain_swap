@@ -1,6 +1,6 @@
-import 'package:onchain_swap/src/exception/exception.dart';
-import 'package:onchain_swap/src/providers/cf/models/models/backend.dart';
-import 'package:onchain_swap/src/providers/cf/models/models/rpc.dart';
+import 'package:on_chain_swap/src/exception/exception.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models/backend.dart';
+import 'package:on_chain_swap/src/providers/cf/models/models/rpc.dart';
 
 class Failure {
   final int failedAt;

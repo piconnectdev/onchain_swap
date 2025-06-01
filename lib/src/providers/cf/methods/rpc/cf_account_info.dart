@@ -1,4 +1,4 @@
-import 'package:onchain_swap/src/providers/cf/core/core.dart';
+import 'package:on_chain_swap/src/providers/cf/core/core.dart';
 
 class CfRPCRequestAccountsInfo extends CfRPCRequestParam {
   final String accountId;
