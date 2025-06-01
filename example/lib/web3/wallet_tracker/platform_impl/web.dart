@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:js_interop';
 
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:onchain_swap_example/app/synchronized/basic_lock.dart';
 import 'package:onchain_swap_example/future/pages/wallet_scanner/cross/web.dart';
 import 'package:onchain_swap_example/web3/core/wallet.dart';

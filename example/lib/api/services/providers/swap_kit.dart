@@ -1,5 +1,5 @@
 import 'package:onchain_swap_example/api/services/http/http.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 
 class SwapKitHTTPService extends HTTPService implements SwapKitServiceProvider {
   SwapKitHTTPService(

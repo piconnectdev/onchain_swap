@@ -1,4 +1,4 @@
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:onchain_swap_example/api/utils/utils.dart';
 import 'package:onchain_swap_example/api/services/socket/core/socket_provider.dart';
 import 'package:onchain_swap_example/api/services/types/types.dart';

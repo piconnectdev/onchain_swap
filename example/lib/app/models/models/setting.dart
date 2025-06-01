@@ -4,7 +4,7 @@ import 'package:onchain_swap_example/app/euqatable/equatable.dart';
 import 'package:onchain_swap_example/app/serialization/cbor/cbor.dart';
 import 'package:onchain_swap_example/marketcap/prices/currency.dart';
 import 'package:on_chain_bridge/models/models.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 
 class APPSetting with CborSerializable, Equatable {
   APPSetting._(

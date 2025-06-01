@@ -1,7 +1,7 @@
 import 'dart:js_interop';
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:blockchain_utils/blockchain_utils.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:cosmos_sdk/cosmos_sdk.dart';
 import 'package:onchain_swap_example/app/error/exception.dart';
 import 'package:onchain_swap_example/app/utils/method.dart';

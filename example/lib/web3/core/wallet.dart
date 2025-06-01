@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:onchain_swap_example/app/euqatable/equatable.dart';
 import 'package:onchain_swap_example/app/image/image.dart';
 

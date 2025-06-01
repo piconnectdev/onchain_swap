@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:on_chain_swap/onchain_swap.dart' show SwapNetwork;
+import 'package:on_chain_swap/on_chain_swap.dart' show SwapNetwork;
 import 'package:onchain_swap_example/web3/core/wallet.dart';
 import 'package:onchain_swap_example/web3/wallet_tracker/core/core.dart';
 

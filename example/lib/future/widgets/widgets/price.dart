@@ -1,4 +1,4 @@
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:flutter/material.dart';
 import 'assets_image.dart';
 import 'tooltip/widgets/tooltip.dart';

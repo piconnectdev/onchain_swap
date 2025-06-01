@@ -1,5 +1,5 @@
 import 'package:onchain_swap_example/swap/swap.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:onchain_swap_example/app/types/types.dart';
 import 'package:onchain_swap_example/future/state_managment/state_managment.dart';
 import 'package:onchain_swap_example/future/widgets/custom_widgets.dart';

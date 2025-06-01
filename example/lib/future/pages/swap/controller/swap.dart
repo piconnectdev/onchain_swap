@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:blockchain_utils/helper/extensions/extensions.dart';
 import 'package:blockchain_utils/utils/numbers/rational/big_rational.dart';
 import 'package:onchain_swap_example/app/models/models/setting.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 import 'package:onchain_swap_example/app/constants/constants.dart';
 import 'package:onchain_swap_example/app/live_listener/live.dart';
 import 'package:onchain_swap_example/app/synchronized/basic_lock.dart';

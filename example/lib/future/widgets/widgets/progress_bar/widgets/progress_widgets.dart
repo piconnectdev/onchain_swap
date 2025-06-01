@@ -12,7 +12,7 @@ import 'package:onchain_swap_example/future/widgets/widgets/progress_bar/progres
 import 'package:onchain_swap_example/future/widgets/widgets/secure_content_view.dart';
 import 'package:onchain_swap_example/future/widgets/widgets/widget_constant.dart';
 import 'package:flutter/material.dart';
-import 'package:on_chain_swap/onchain_swap.dart';
+import 'package:on_chain_swap/on_chain_swap.dart';
 
 Widget get initializeProgressWidget =>
     ProgressWithTextView(text: "initializing_requirements".tr);
