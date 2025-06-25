@@ -16,11 +16,17 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  bitcoin_base: ^6.5.0
-  blockchain_utils: ^5.0.0
-  cosmos_sdk: ^2.6.0
-  on_chain: ^6.7.0
-  polkadot_dart: ^3.8.0
+  bitcoin_base:
+    path: ../bitcoin_base
+  blockchain_utils: ^5.1.0
+  cosmos_sdk:
+    path: ../cosmos_sdk
+  on_chain:
+    path: ../On_chain
+  polkadot_dart:
+    path: ../polkadot_dart
+  # blockchain_utils:
+  #   path: ../blockchain_utils
 dev_dependencies:
   test: ^1.25.8
   lints: ^4.0.0

@@ -65,33 +65,33 @@
     },
     {
       "name": "polkadot_dart",
-      "version": "3.8.0",
+      "version": "3.9.0",
       "dependencies": [
         "blockchain_utils"
       ]
     },
     {
       "name": "on_chain",
-      "version": "6.7.0",
+      "version": "6.8.0",
       "dependencies": [
         "blockchain_utils"
       ]
     },
     {
       "name": "cosmos_sdk",
-      "version": "2.7.0",
+      "version": "2.8.0",
       "dependencies": [
         "blockchain_utils"
       ]
     },
     {
       "name": "blockchain_utils",
-      "version": "5.0.0",
+      "version": "5.1.0",
       "dependencies": []
     },
     {
       "name": "bitcoin_base",
-      "version": "6.5.0",
+      "version": "6.6.0",
       "dependencies": [
         "blockchain_utils"
       ]

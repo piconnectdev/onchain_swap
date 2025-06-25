@@ -27,13 +27,13 @@
     },
     {
       "name": "bitcoin_base",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/bitcoin_base-6.5.0",
+      "rootUri": "../../bitcoin_base",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "blockchain_utils",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/blockchain_utils-5.0.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/blockchain_utils-5.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -69,7 +69,7 @@
     },
     {
       "name": "cosmos_sdk",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/cosmos_sdk-2.7.0",
+      "rootUri": "../../cosmos_sdk",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -177,7 +177,7 @@
     },
     {
       "name": "on_chain",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/on_chain-6.7.0",
+      "rootUri": "../../On_chain",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -195,7 +195,7 @@
     },
     {
       "name": "polkadot_dart",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/polkadot_dart-3.8.0",
+      "rootUri": "../../polkadot_dart",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
