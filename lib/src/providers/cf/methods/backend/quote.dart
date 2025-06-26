@@ -22,16 +22,21 @@ class CfBackendRequestQuote
   final int? brokerCommissionBps;
   final List<AffiliateBroker>? affiliateBrokers;
   @override
-  Map<String, String?>? get queryParameters => {
-        "amount": amount,
-        "srcChain": srcChain,
-        "srcAsset": srcAsset,
-        "destChain": destChain,
-        "destAsset": destAsset,
-        "brokerCommissionBps": brokerCommissionBps?.toString(),
-        "dcaEnabled": 'false',
-        "affiliateBrokers": [].toString()
-      };
+  Map<String, String?>? get queryParameters {
+    return {
+      "amount": amount,
+      "srcChain": srcChain,
+      "srcAsset": srcAsset,
+      "destChain": destChain,
+      "isVaultSwap": false.toString(),
+      "destAsset": destAsset,
+      "isOnChain": true.toString(),
+      "brokerCommissionBps": 15.toString(),
+      // "brokerCommissionBps": brokerCommissionBps?.toString(),
+      "dcaEnabled": 'false',
+      "affiliateBrokers": [].toString()
+    };
+  }
 
   @override
   String get method => CfSwapMethods.quote.url;

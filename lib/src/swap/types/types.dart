@@ -44,11 +44,11 @@ abstract class BaseSwapServiceApiParams {
   final List<SwapServiceType> services;
   BaseSwapServiceApiParams(List<SwapServiceType> services)
       : services = services.immutable;
-  Future<CfSwapService> loadChainFlipService();
-  Future<MayaSwapService> loadMayaService();
-  Future<SkipGoSwapService> loadSkipGoService();
-  Future<SwapKitSwapService> loadSwapKitService();
-  Future<ThorSwapService> loadThorService();
+  Future<CfSwapService?> loadChainFlipService();
+  Future<MayaSwapService?> loadMayaService();
+  Future<SkipGoSwapService?> loadSkipGoService();
+  Future<SwapKitSwapService?> loadSwapKitService();
+  Future<ThorSwapService?> loadThorService();
 }
 
 abstract class SwapRoute<QUOTE extends QuoteSwapParams,

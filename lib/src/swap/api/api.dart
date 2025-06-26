@@ -14,13 +14,14 @@ class SwapServiceApi {
   static Future<SwapServiceApi> loadApi(BaseSwapServiceApiParams params) async {
     Map<SwapServiceType, SwapService> services = {};
     for (final s in params.services) {
-      final SwapService service = switch (s) {
+      final SwapService? service = switch (s) {
         SwapServiceType.chainFlip => await params.loadChainFlipService(),
         SwapServiceType.maya => await params.loadMayaService(),
         SwapServiceType.thor => await params.loadThorService(),
         SwapServiceType.skipGo => await params.loadSkipGoService(),
         SwapServiceType.swapKit => await params.loadSwapKitService(),
       };
+      if (service == null) continue;
       services[s] = service;
     }
     return SwapServiceApi(services);

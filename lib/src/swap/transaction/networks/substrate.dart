@@ -114,7 +114,6 @@ class SwapRouteSubstrateNativeTransactionOperation
           "Unsported metadata extersinc.");
     }
     final ex = extersinc.first;
-
     return Web3TransactionSubstrate(
         address: source,
         blockHash: block.blockHashBytes,

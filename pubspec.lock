@@ -36,9 +36,10 @@ packages:
   bitcoin_base:
     dependency: "direct main"
     description:
-      path: "../bitcoin_base"
-      relative: true
-    source: path
+      name: bitcoin_base
+      sha256: d12f8c4f25640616332c6bd067d18cd492f0046c10ec3bbfacc8f3113f534268
+      url: "https://pub.dev"
+    source: hosted
     version: "6.6.0"
   blockchain_utils:
     dependency: "direct main"
@@ -91,9 +92,10 @@ packages:
   cosmos_sdk:
     dependency: "direct main"
     description:
-      path: "../cosmos_sdk"
-      relative: true
-    source: path
+      name: cosmos_sdk
+      sha256: "91d14b590391f112da78440c3d586eb287ed75777f863bf3a4386ffdb5af3bef"
+      url: "https://pub.dev"
+    source: hosted
     version: "2.8.0"
   coverage:
     dependency: transitive
@@ -234,9 +236,10 @@ packages:
   on_chain:
     dependency: "direct main"
     description:
-      path: "../On_chain"
-      relative: true
-    source: path
+      name: on_chain
+      sha256: "342ee08a06d2cbc297c9fe363c9921961294e3f4397065b0a9c8d7d5eca2f937"
+      url: "https://pub.dev"
+    source: hosted
     version: "6.8.0"
   package_config:
     dependency: transitive
@@ -257,9 +260,10 @@ packages:
   polkadot_dart:
     dependency: "direct main"
     description:
-      path: "../polkadot_dart"
-      relative: true
-    source: path
+      name: polkadot_dart
+      sha256: "144669ca28b4023f98dd6db60144181cb5055810f952acf32f9a5ec4c6ceef66"
+      url: "https://pub.dev"
+    source: hosted
     version: "3.9.0"
   pool:
     dependency: transitive

@@ -71,6 +71,13 @@
       ]
     },
     {
+      "name": "bitcoin_base",
+      "version": "6.6.0",
+      "dependencies": [
+        "blockchain_utils"
+      ]
+    },
+    {
       "name": "on_chain",
       "version": "6.8.0",
       "dependencies": [
@@ -88,13 +95,6 @@
       "name": "blockchain_utils",
       "version": "5.1.0",
       "dependencies": []
-    },
-    {
-      "name": "bitcoin_base",
-      "version": "6.6.0",
-      "dependencies": [
-        "blockchain_utils"
-      ]
     },
     {
       "name": "yaml",

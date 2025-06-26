@@ -1402,7 +1402,7 @@ class QuoteDetails {
         srcAsset = UncheckedAssetAndChain.fromJson(json.asMap("srcAsset")),
         destAsset = UncheckedAssetAndChain.fromJson(json.as("destAsset")),
         depositAmount = json.as("depositAmount"),
-        isVaultSwap = json.as("isVaultSwap");
+        isVaultSwap = json.as("isVaultSwap") ?? false;
 
   // Method to convert QuoteDetails object to JSON
   Map<String, dynamic> toJson() {

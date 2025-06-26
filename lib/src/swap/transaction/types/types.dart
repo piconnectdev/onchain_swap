@@ -174,6 +174,9 @@ class Web3TransactionSubstrate extends Web3Transaction {
             genesisHash: SubstrateBlockHash(genesisHash),
             method: method,
             nonce: nonce,
+            tip: BigInt.zero,
+            mode: 0,
+            metadataHash: null,
             specVersion: specVersion,
             transactionVersion: transactionVersion));
   }
