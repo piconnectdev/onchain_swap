@@ -18,9 +18,15 @@ environment:
 dependencies:
   blockchain_utils: ^5.1.0
   cosmos_sdk: ^2.8.0
-  on_chain: ^6.8.0
-  bitcoin_base: ^6.6.0
-  polkadot_dart: ^3.9.0
+  on_chain: ^6.9.0
+  # on_chain:
+  #   path: ../On_chain
+  # bitcoin_base:
+  #   path: ../bitcoin_base
+  bitcoin_base: ^6.7.0
+  polkadot_dart: ^4.0.0
+  # polkadot_dart:
+  #   path: ../polkadot_dart
 dev_dependencies:
   test: ^1.25.8
   lints: ^4.0.0

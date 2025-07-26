@@ -27,7 +27,7 @@
     },
     {
       "name": "bitcoin_base",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/bitcoin_base-6.6.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/bitcoin_base-6.7.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -177,7 +177,7 @@
     },
     {
       "name": "on_chain",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/on_chain-6.8.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/on_chain-6.9.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -195,7 +195,7 @@
     },
     {
       "name": "polkadot_dart",
-      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/polkadot_dart-3.9.0",
+      "rootUri": "file:///Users/macbookpro/.pub-cache/hosted/pub.dev/polkadot_dart-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -359,6 +359,6 @@
   "generator": "pub",
   "generatorVersion": "3.8.1",
   "flutterRoot": "file:///Users/macbookpro/Documents/flutter",
-  "flutterVersion": "3.32.1",
+  "flutterVersion": "3.32.7",
   "pubCache": "file:///Users/macbookpro/.pub-cache"
 }
