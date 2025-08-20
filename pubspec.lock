@@ -37,18 +37,18 @@ packages:
     dependency: "direct main"
     description:
       name: bitcoin_base
-      sha256: "3de225565a5447d616b4f3dce9f6740ba898e70211ab77f48e2aac3cabdf86c3"
+      sha256: "7a5667b96f5550dd81f73517b0b431987a9e51a17d756955f2a9e1e2626dc8e7"
       url: "https://pub.dev"
     source: hosted
-    version: "6.7.0"
+    version: "6.8.0"
   blockchain_utils:
     dependency: "direct main"
     description:
       name: blockchain_utils
-      sha256: "2681bc950d31fd12eff8b9ea803d686a845a69f94fa88fdefc8c12ad63f55837"
+      sha256: edc360f7f2a8978d089a34dd62a5dfad303c79260e5f6207e1709fed80c84334
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.0"
+    version: "5.2.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -93,10 +93,10 @@ packages:
     dependency: "direct main"
     description:
       name: cosmos_sdk
-      sha256: "91d14b590391f112da78440c3d586eb287ed75777f863bf3a4386ffdb5af3bef"
+      sha256: aa319445b54b3c6211ca008e9bda77dd1023da667ec89b82cf209cc77a7acf78
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.0"
+    version: "2.9.0"
   coverage:
     dependency: transitive
     description:
@@ -237,10 +237,10 @@ packages:
     dependency: "direct main"
     description:
       name: on_chain
-      sha256: "835290a644a9a9367a428c0bab796c04972f71aa9b7119c8857e28caeec9592e"
+      sha256: a6f4e8c5243f83e588c5c47e09b8fd7a7b231d3a14d4a80a509cc319f02168fd
       url: "https://pub.dev"
     source: hosted
-    version: "6.9.0"
+    version: "7.0.0"
   package_config:
     dependency: transitive
     description:
@@ -261,10 +261,10 @@ packages:
     dependency: "direct main"
     description:
       name: polkadot_dart
-      sha256: f4acdb3779af935702c478d4f32579f58c3169a295198c08674669b7ca610c95
+      sha256: "2c1d731ad984bffba04da53b98fa01edb87da9b32d29c141e1512d069fd4b6dd"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "4.1.0"
   pool:
     dependency: transitive
     description:

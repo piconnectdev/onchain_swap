@@ -41,7 +41,7 @@ abstract class CfBackendRequestParam<RESULT, RESPONSE>
     for (int i = 0; i < pathParams.length; i++) {
       params = params.replaceFirst(pathParams[i], pathParameters[i]);
     }
-    final queryParams = Map<String, dynamic>.from(this.queryParameters ?? {});
+    final queryParams = Map<String, dynamic>.from(queryParameters ?? {});
     if (queryParams.isNotEmpty) {
       params = Uri(path: params, queryParameters: queryParams)
           .normalizePath()
@@ -96,7 +96,7 @@ abstract class CfTRPCRequest<RESULT, RESPONSE>
   @override
   CfRequestDetails buildRequest(int requestID) {
     String pathParameters = "/trpc/$method";
-    final queryParams = Map<String, dynamic>.from(this.queryParameters ?? {});
+    final queryParams = Map<String, dynamic>.from(queryParameters ?? {});
     if (queryParams.isNotEmpty) {
       pathParameters = Uri(path: pathParameters, queryParameters: queryParams)
           .normalizePath()
