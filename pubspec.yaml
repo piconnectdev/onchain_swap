@@ -19,7 +19,7 @@ dependencies:
   blockchain_utils: ^5.2.0
   cosmos_sdk: ^2.9.0
   on_chain: ^7.0.0
-  bitcoin_base: ^6.8.0
+  bitcoin_base: ^6.9.0
   polkadot_dart: ^4.1.0
 
 dev_dependencies:
